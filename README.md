@@ -20,6 +20,11 @@ Goal: separate **personal**, **work**, and **IoT** traffic across my wired netwo
 The **Omada ER605** handles routing and VLAN assignment, while my **EdgeSwitch 8-Port 150W** enforces port-level segmentation.  
 The **TP-Link BE550** handles Wi-Fi and acts as a router within the Omada system.
 
+### 🗺 Network Map
+Here’s the visual layout of my current setup.
+
+![Home Network Map](images/home-network-map.png)
+
 ---
 
 ## 🔧 Verified VLAN Configuration (EdgeSwitch 8-Port 150W)
