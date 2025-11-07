@@ -1,0 +1,148 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36" version="28.2.5">
+  <diagram id="6a731a19-8d31-9384-78a2-239565b7b9f0" name="Page-1">
+    <mxGraphModel grid="1" page="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" pageScale="1" pageWidth="827" pageHeight="1169" background="none" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="pUVtfGPV8R0B1_8R1ft--2290" value="MAIN FLOOR" style="rounded=0;whiteSpace=wrap;html=1;fillColor=default;strokeWidth=5;labelPosition=center;verticalLabelPosition=top;align=center;verticalAlign=bottom;fontSize=32;direction=south;movable=0;resizable=0;rotatable=0;deletable=0;editable=0;locked=1;connectable=0;" vertex="1" parent="1">
+          <mxGeometry x="208" y="-1098" width="760" height="816" as="geometry" />
+        </mxCell>
+        <mxCell id="pUVtfGPV8R0B1_8R1ft--2291" value="SECOND FLOOR OFFICE" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeWidth=5;labelPosition=center;verticalLabelPosition=top;align=center;verticalAlign=bottom;fontSize=32;fontColor=#333333;strokeColor=#666666;movable=0;resizable=0;rotatable=0;deletable=0;editable=0;locked=1;connectable=0;" vertex="1" parent="1">
+          <mxGeometry x="1230" y="-1090" width="820" height="760" as="geometry" />
+        </mxCell>
+        <mxCell id="pUVtfGPV8R0B1_8R1ft--2266" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="pUVtfGPV8R0B1_8R1ft--2262" target="pUVtfGPV8R0B1_8R1ft--2263">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="pUVtfGPV8R0B1_8R1ft--2267" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="pUVtfGPV8R0B1_8R1ft--2262" target="pUVtfGPV8R0B1_8R1ft--2263">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="pUVtfGPV8R0B1_8R1ft--2262" value="KOODO Fiber" style="html=1;outlineConnect=0;fillColor=#f8cecc;strokeColor=#b85450;gradientDirection=north;strokeWidth=2;shape=mxgraph.networks.cloud;fontSize=16;labelPosition=center;verticalLabelPosition=bottom;align=center;verticalAlign=top;" vertex="1" parent="1">
+          <mxGeometry x="330" y="-1040" width="150" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="pUVtfGPV8R0B1_8R1ft--2274" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="pUVtfGPV8R0B1_8R1ft--2263" target="pUVtfGPV8R0B1_8R1ft--2273">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="pUVtfGPV8R0B1_8R1ft--2263" value="ISP Modem" style="verticalAlign=top;verticalLabelPosition=bottom;labelPosition=center;align=center;html=1;outlineConnect=0;fillColor=#f8cecc;strokeColor=#b85450;gradientDirection=north;strokeWidth=2;shape=mxgraph.networks.modem;fontSize=15;" vertex="1" parent="1">
+          <mxGeometry x="355" y="-880" width="100" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="pUVtfGPV8R0B1_8R1ft--2276" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="pUVtfGPV8R0B1_8R1ft--2273" target="pUVtfGPV8R0B1_8R1ft--2275">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="pUVtfGPV8R0B1_8R1ft--2273" value="TP-Link ER605" style="sketch=0;points=[[0.5,0,0],[1,0.5,0],[0.5,1,0],[0,0.5,0],[0.145,0.145,0],[0.8555,0.145,0],[0.855,0.8555,0],[0.145,0.855,0]];verticalLabelPosition=bottom;html=1;verticalAlign=top;aspect=fixed;align=center;pointerEvents=1;shape=mxgraph.cisco19.rect;prIcon=router_with_firewall;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=15;" vertex="1" parent="1">
+          <mxGeometry x="370" y="-790" width="70" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="pUVtfGPV8R0B1_8R1ft--2280" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="pUVtfGPV8R0B1_8R1ft--2275">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="588" y="-650" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="pUVtfGPV8R0B1_8R1ft--2275" value="TP-Link BE550" style="shape=mxgraph.cisco.routers.wireless_router;sketch=0;html=1;pointerEvents=1;dashed=0;fillColor=#dae8fc;strokeColor=#6c8ebf;strokeWidth=2;verticalLabelPosition=bottom;verticalAlign=top;align=center;outlineConnect=0;fontSize=15;" vertex="1" parent="1">
+          <mxGeometry x="549" y="-793.5" width="78" height="77" as="geometry" />
+        </mxCell>
+        <mxCell id="pUVtfGPV8R0B1_8R1ft--2282" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" target="pUVtfGPV8R0B1_8R1ft--2281">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="634" y="-629.2" as="sourcePoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="pUVtfGPV8R0B1_8R1ft--2284" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="pUVtfGPV8R0B1_8R1ft--2281" target="pUVtfGPV8R0B1_8R1ft--2283">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="pUVtfGPV8R0B1_8R1ft--2287" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;dashed=1;" edge="1" parent="1" source="pUVtfGPV8R0B1_8R1ft--2281" target="pUVtfGPV8R0B1_8R1ft--2289">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="761" y="-532.5" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="pUVtfGPV8R0B1_8R1ft--2281" value="Telus Smart HUb" style="shape=mxgraph.cisco.routers.wireless_router;sketch=0;html=1;pointerEvents=1;dashed=0;fillColor=#dae8fc;strokeColor=#6c8ebf;strokeWidth=2;verticalLabelPosition=bottom;verticalAlign=top;align=center;outlineConnect=0;fontSize=15;" vertex="1" parent="1">
+          <mxGeometry x="700" y="-667.75" width="78" height="77" as="geometry" />
+        </mxCell>
+        <mxCell id="pUVtfGPV8R0B1_8R1ft--2283" value="Telus Access Point" style="shape=mxgraph.cisco.misc.access_point;html=1;pointerEvents=1;dashed=1;fillColor=#d5e8d4;strokeColor=#82b366;strokeWidth=2;verticalLabelPosition=bottom;verticalAlign=top;align=center;outlineConnect=0;fontSize=15;" vertex="1" parent="1">
+          <mxGeometry x="703" y="-510" width="75" height="34" as="geometry" />
+        </mxCell>
+        <mxCell id="pUVtfGPV8R0B1_8R1ft--2289" value="Telus AP (Garage)" style="html=1;verticalLabelPosition=bottom;align=center;labelBackgroundColor=#ffffff;verticalAlign=top;strokeWidth=2;strokeColor=#82b366;shadow=0;dashed=1;shape=mxgraph.ios7.icons.cloud;fontSize=15;fillColor=#d5e8d4;" vertex="1" parent="1">
+          <mxGeometry x="850" y="-659.25" width="80" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="pUVtfGPV8R0B1_8R1ft--2292" value="Ethernet Run to Office (LAN)" style="endArrow=block;startArrow=classic;html=1;rounded=0;endWidth=20;fillColor=#f5f5f5;strokeColor=#666666;labelPosition=center;verticalLabelPosition=bottom;align=center;verticalAlign=top;entryX=0;entryY=0.436;entryDx=0;entryDy=0;entryPerimeter=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;exitPerimeter=0;strokeWidth=5;fontSize=15;" edge="1" parent="1">
+          <mxGeometry width="100" height="100" relative="1" as="geometry">
+            <mxPoint x="627" y="-742.5" as="sourcePoint" />
+            <mxPoint x="1230" y="-747.4999999999999" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="pUVtfGPV8R0B1_8R1ft--2305" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="pUVtfGPV8R0B1_8R1ft--2294" target="pUVtfGPV8R0B1_8R1ft--2304">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="pUVtfGPV8R0B1_8R1ft--2294" value="EdgeSwitch 8 150W" style="verticalAlign=top;verticalLabelPosition=bottom;labelPosition=center;align=center;html=1;outlineConnect=0;fillColor=#dae8fc;strokeColor=#6c8ebf;gradientDirection=north;strokeWidth=2;shape=mxgraph.networks.switch;fontSize=15;" vertex="1" parent="1">
+          <mxGeometry x="1400" y="-776.5" width="110" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="pUVtfGPV8R0B1_8R1ft--2297" value="Ethernet In - Port 1" style="endArrow=classic;startArrow=classic;html=1;rounded=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;labelPosition=center;verticalLabelPosition=top;align=center;verticalAlign=bottom;fontSize=15;strokeWidth=4;" edge="1" parent="1" target="pUVtfGPV8R0B1_8R1ft--2294">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="1240" y="-750" as="sourcePoint" />
+            <mxPoint x="1360" y="-710.75" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="pUVtfGPV8R0B1_8R1ft--2303" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fillColor=#1ba1e2;strokeColor=#006EAF;" edge="1" parent="1" source="pUVtfGPV8R0B1_8R1ft--2301" target="pUVtfGPV8R0B1_8R1ft--2294">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="pUVtfGPV8R0B1_8R1ft--2301" value="PC - Port 6 (VLAN 1)" style="fontColor=light-dark(#201e1e, #121212);verticalAlign=bottom;verticalLabelPosition=top;labelPosition=center;align=center;html=1;outlineConnect=0;fillColor=#1ba1e2;strokeColor=#006EAF;gradientDirection=north;strokeWidth=2;shape=mxgraph.networks.desktop_pc;fontSize=15;" vertex="1" parent="1">
+          <mxGeometry x="1440" y="-934.5" width="30" height="85" as="geometry" />
+        </mxCell>
+        <mxCell id="pUVtfGPV8R0B1_8R1ft--2304" value="Work Computer - Port 2" style="verticalAlign=top;verticalLabelPosition=bottom;labelPosition=center;align=center;html=1;outlineConnect=0;fillColor=#fff2cc;strokeColor=#d6b656;gradientDirection=north;strokeWidth=2;shape=mxgraph.networks.laptop;fontSize=15;" vertex="1" parent="1">
+          <mxGeometry x="1405" y="-663.5" width="100" height="55" as="geometry" />
+        </mxCell>
+        <mxCell id="pUVtfGPV8R0B1_8R1ft--2325" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f0a30a;fontColor=#000000;strokeColor=#BD7000;opacity=50;" vertex="1" parent="1">
+          <mxGeometry x="1560" y="-710" width="480" height="210" as="geometry" />
+        </mxCell>
+        <mxCell id="pUVtfGPV8R0B1_8R1ft--2317" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" edge="1" parent="1" source="pUVtfGPV8R0B1_8R1ft--2306" target="pUVtfGPV8R0B1_8R1ft--2311">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="pUVtfGPV8R0B1_8R1ft--2306" value="EdgeSwtich 8XP" style="verticalAlign=top;verticalLabelPosition=bottom;labelPosition=center;align=center;html=1;outlineConnect=0;fillColor=#dae8fc;strokeColor=#6c8ebf;gradientDirection=north;strokeWidth=2;shape=mxgraph.networks.hub;fontSize=15;" vertex="1" parent="1">
+          <mxGeometry x="1790" y="-776.5" width="100" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="pUVtfGPV8R0B1_8R1ft--2307" value="Port 5 - Switch-to-Switch Link -&amp;nbsp; Port 8" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;labelPosition=center;verticalLabelPosition=top;align=center;verticalAlign=bottom;fontSize=14;strokeWidth=3;fillColor=#e1d5e7;strokeColor=#9673a6;" edge="1" parent="1" source="pUVtfGPV8R0B1_8R1ft--2294" target="pUVtfGPV8R0B1_8R1ft--2306">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="pUVtfGPV8R0B1_8R1ft--2309" value="SmartThings Hub -&amp;nbsp;&lt;div&gt;Port 2&lt;/div&gt;" style="shape=mxgraph.cisco.wireless.wireless_transport;sketch=0;html=1;pointerEvents=1;dashed=1;fillColor=#d5e8d4;strokeColor=#82b366;strokeWidth=2;verticalLabelPosition=bottom;verticalAlign=top;align=center;outlineConnect=0;fontSize=15;" vertex="1" parent="1">
+          <mxGeometry x="1614" y="-599.25" width="80" height="56.4" as="geometry" />
+        </mxCell>
+        <mxCell id="pUVtfGPV8R0B1_8R1ft--2310" value="Arlo Hub -&amp;nbsp;&lt;div&gt;Port 3&lt;/div&gt;" style="verticalAlign=top;verticalLabelPosition=bottom;labelPosition=center;align=center;html=1;outlineConnect=0;fillColor=#d5e8d4;strokeColor=#82b366;gradientDirection=north;strokeWidth=2;shape=mxgraph.networks.wireless_hub;fontSize=15;dashed=1;" vertex="1" parent="1">
+          <mxGeometry x="1750" y="-633.6" width="100" height="85" as="geometry" />
+        </mxCell>
+        <mxCell id="pUVtfGPV8R0B1_8R1ft--2311" value="Ikea Hub - Port 5" style="pointerEvents=1;shadow=0;dashed=1;html=1;strokeColor=#82b366;fillColor=#d5e8d4;labelPosition=center;verticalLabelPosition=bottom;verticalAlign=top;align=center;outlineConnect=0;shape=mxgraph.veeam.controller;fontSize=15;" vertex="1" parent="1">
+          <mxGeometry x="1941.66" y="-694.05" width="44.8" height="44.8" as="geometry" />
+        </mxCell>
+        <mxCell id="pUVtfGPV8R0B1_8R1ft--2312" value="Synology NAS - &#xa;Port 4" style="fillColorStyles=neutralFill;neutralFill=#9DA6A8;shape=mxgraph.networks2.icon;aspect=fixed;fillColor=#d5e8d4;strokeColor=#82b366;network2IconShadow=1;network2bgFillColor=none;network2Icon=mxgraph.networks2.server;network2IconW=1.0001;network2IconH=0.5812;labelPosition=center;verticalLabelPosition=bottom;align=center;verticalAlign=top;fontSize=15;dashed=1;" vertex="1" parent="1">
+          <mxGeometry x="1910" y="-589.35" width="70.12" height="40.75" as="geometry" />
+        </mxCell>
+        <mxCell id="pUVtfGPV8R0B1_8R1ft--2313" value="" style="endArrow=classic;startArrow=classic;html=1;rounded=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;exitX=0.5;exitY=0;exitDx=0;exitDy=0;exitPerimeter=0;fillColor=#d5e8d4;strokeColor=#82b366;" edge="1" parent="1" source="pUVtfGPV8R0B1_8R1ft--2309" target="pUVtfGPV8R0B1_8R1ft--2306">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="1740" y="-685" as="sourcePoint" />
+            <mxPoint x="1790" y="-735" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="pUVtfGPV8R0B1_8R1ft--2314" value="" style="endArrow=classic;startArrow=classic;html=1;rounded=0;exitX=0.057;exitY=0.644;exitDx=0;exitDy=0;exitPerimeter=0;fillColor=#d5e8d4;strokeColor=#82b366;" edge="1" parent="1" source="pUVtfGPV8R0B1_8R1ft--2312" target="pUVtfGPV8R0B1_8R1ft--2306">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="1810.12" y="-570" as="sourcePoint" />
+            <mxPoint x="1860.12" y="-620" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="pUVtfGPV8R0B1_8R1ft--2315" value="" style="endArrow=classic;startArrow=classic;html=1;rounded=0;fillColor=#d5e8d4;strokeColor=#82b366;" edge="1" parent="1" source="pUVtfGPV8R0B1_8R1ft--2310" target="pUVtfGPV8R0B1_8R1ft--2306">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="1820" y="-590.75" as="sourcePoint" />
+            <mxPoint x="1870" y="-640.75" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="pUVtfGPV8R0B1_8R1ft--2318" value="Unmanaged Switch" style="shape=mxgraph.cisco.hubs_and_gateways.small_hub;sketch=0;html=1;pointerEvents=1;dashed=0;fillColor=#dae8fc;strokeColor=#6c8ebf;strokeWidth=2;verticalLabelPosition=bottom;verticalAlign=top;align=center;outlineConnect=0;fontSize=15;" vertex="1" parent="1">
+          <mxGeometry x="549" y="-649.25" width="90" height="45" as="geometry" />
+        </mxCell>
+        <mxCell id="pUVtfGPV8R0B1_8R1ft--2321" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;exitPerimeter=0;" edge="1" parent="1" source="pUVtfGPV8R0B1_8R1ft--2310" target="pUVtfGPV8R0B1_8R1ft--2310">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="pUVtfGPV8R0B1_8R1ft--2324" value="Legend:&#xa;🔴 WAN / Internet&#xa;🔵 VLAN 1 – Main LAN (Personal, NAS)&#xa;🟡 VLAN 20 – Work&#xa;🟠 VLAN 30 – IoT / Smart Hubs&#xa;🟣 Trunk Links (Switch-to-Switch)&#xa;⚪ Physical Cable Run Between Floors&#xa;🟢 Wireless Connection" style="text;whiteSpace=wrap;fontSize=20;labelBackgroundColor=#66FF66;" vertex="1" parent="1">
+          <mxGeometry x="1590" y="-210" width="420" height="200" as="geometry" />
+        </mxCell>
+        <mxCell id="pUVtfGPV8R0B1_8R1ft--2326" value="Home Network Topology&#xa;Version: 2025.03.10&#xa;Author: Dan Jackson&#xa;Status: Pre-VLAN Configuration (ER605 Pending)" style="text;whiteSpace=wrap;fontSize=18;" vertex="1" parent="1">
+          <mxGeometry x="40" y="-1330" width="350" height="120" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
