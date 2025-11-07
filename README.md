@@ -23,7 +23,8 @@ The **TP-Link BE550** handles Wi-Fi and acts as a router within the Omada system
 ### 🗺 Network Map
 Here’s the visual layout of my current setup.
 
-![Home Network Map](Home Network.drawio.png)
+[![Home Network Map](images/Home%20Network.drawio.png)](images/Home%20Network.drawio)
+
 
 ---
 
