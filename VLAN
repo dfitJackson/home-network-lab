@@ -1,0 +1,64 @@
+# 🧠 Home Network Lab
+
+This repo is where I’m tracking what I’ve learned (and broken, then fixed) while building out my home network.  
+Each project is hands-on and tied to something I actually run in my house.
+
+---
+
+## 🧩 Projects So Far
+
+### 1) Pi-hole (Ad-blocking DNS)
+Running Pi-hole in Docker on my **HP All-in-One (Ubuntu)** box.  
+It’s handling DNS for my personal network and letting me see which domains my devices talk to most.  
+Testing with `dig` helped me confirm query flow through the **ER605**.  
+Pi-hole has a static IP `192.168.10.148` and is currently limited to my main VLAN.
+
+### 2) VLAN Segmentation
+Goal: separate **personal**, **work**, and **IoT** traffic across my wired network.  
+The **Omada ER605** handles routing and VLAN assignment, while my **EdgeSwitch 8-Port 150W** enforces port-level segmentation.  
+The **TP-Link BE550** handles Wi-Fi and acts as a router within the Omada system.
+
+---
+
+## 🔧 Verified VLAN Configuration (EdgeSwitch 8-Port 150W)
+
+| VLAN ID | VLAN Name  | Port 1 | Port 2 | Port 3 | Port 4 | Port 5 | Port 6 | Port 7 | Port 8 | Notes |
+|----------|-------------|--------|--------|--------|--------|--------|--------|--------|--------|-------|
+| **1** | default | U | E | U | U | T | E | E | E | Home VLAN (untagged on 1,3,4; trunk on 5) |
+| **20** | Work VLAN | T | U | E | E | T | E | E | E | Work VLAN (untagged on 2; trunk on 5) |
+| **30** | IoT VLAN | T | E | E | E | T | E | E | E | IoT VLAN (tagged on 1,5) |
+
+**Legend:**  
+- **U = Untagged**  
+- **T = Tagged**  
+- **E = Excluded**
+
+**Summary**
+- Port 1: Uplink to router (untagged VLAN 1, tagged VLAN 20 & 30)  
+- Port 2: Work laptop (untagged VLAN 20)  
+- Port 3–4: Personal/home (untagged VLAN 1)  
+- Port 5: Trunk between switches (tagged VLAN 20 & 30, untagged VLAN 1)  
+- Ports 6–8: Not used yet
+
+---
+
+## 🧰 Current Stack
+- **Routers:** Omada ER605 and TP-Link BE550 (Wi-Fi 7)  
+- **Switches:** EdgeSwitch 8-Port 150W and EdgeSwitch 8XP  
+- **Controller:** Omada Software Controller  
+- **DNS:** Pi-hole (Docker on Ubuntu) – `192.168.10.148`  
+- **Workstation:** Windows Surface (admin access)  
+- **Work Laptop:** Connected via Lenovo USB-C Dock (40AY0090US) on VLAN 20  
+
+---
+
+## 🧭 Next Steps
+- Add Omada APs that support VLAN tagging.  
+- Extend Pi-hole DNS coverage across all VLANs.  
+- Begin documenting automation and monitoring using Node-RED.  
+
+---
+
+## 🗒 Notes
+This repo is more like a lab journal than a polished guide.  
+Configs are live and evolve as I learn — everything here reflects what’s actually running in my setup.
