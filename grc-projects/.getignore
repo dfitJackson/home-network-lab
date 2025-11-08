@@ -1,0 +1,15 @@
+# Ignore OS files
+.DS_Store
+Thumbs.db
+
+# Ignore editor folders
+.vscode/
+.idea/
+
+# Ignore system junk
+__pycache__/
+*.log
+*.tmp
+
+# Ignore backups
+*.bak
