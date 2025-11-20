@@ -1,149 +1,130 @@
-home-network-lab
+# Home Network Lab (Extended Notes)
 
-Documenting my home network learning journey.
+This file expands on my home network setup, focusing on Home Assistant, Docker services, the tablet dashboard, and monitoring components.  
+It follows the same format and tone as my main README but adds deeper technical notes.
 
-🧠 Home Network Lab
+---
 
-This repo is where I track what I’ve learned (and what I’ve broken, then fixed) while building out my home network.
-Everything here is tied to real hardware and real configurations running in my house.
+## Home Assistant (Docker)
 
-🧩 Projects So Far
-1) Pi-hole (Ad-blocking DNS)
+Home Assistant is running in Docker on my HP All-in-One Ubuntu machine.  
+It handles automation, integrations, dashboards, and home monitoring.
 
-Running Pi-hole in Docker on my HP All-in-One (Ubuntu) machine.
-It handles DNS for my home network and lets me see which domains devices hit the most.
+### Current Integrations
+- Ecobee (climate)
+- Chromecast (media control)
+- Pi-hole (DNS metrics)
+- Synology DSM (NAS monitoring)
+- Omada device sensors (router + switch status)
+- Matter Server (IoT onboarding)
 
-Static IP: 192.168.10.148
+### Why Docker for HA?
+- Easy to update versions  
+- Container separation for HA, Pi-hole, and Matter  
+- No Home Assistant OS required  
+- Better control of storage paths and configs  
 
-Deployed through Docker
+Config directory:
+/config
 
-Integrated into Home Assistant
+---
 
-Logs DNS queries, ads blocked, unique clients, and status
+## Home Assistant Dashboard (Tablet View)
 
-Verified query path using dig and ER605 DHCP settings
+A custom Lovelace dashboard is built specifically for a **Samsung Galaxy Tab A (SM-T580)** mounted as a control console.
 
-Pi-hole currently covers my main LAN VLAN. Extending to other VLANs is planned.
+### Sections on the Dashboard
+- Lights  
+- Climate  
+- Media  
+- Pi-hole monitoring  
+- Synology NAS stats  
+- Omada quick-launch  
+- Network health tiles  
 
-2) VLAN Segmentation
+Most cards were built using the UI editor (minimal YAML).  
+The dashboard is designed for landscape mode and touch-friendly tiles.
 
-Goal: separate personal, work, and IoT traffic.
+---
 
-Router: Omada ER605
+## Tablet Setup (Fully Kiosk Browser)
 
-Switch: EdgeSwitch 150W
+The tablet runs **Fully Kiosk Browser** to stay in permanent fullscreen.
 
-Wi-Fi: TP-Link BE550
+Key settings:
+- Fullscreen mode enabled  
+- Navigation bars hidden  
+- Screen stays awake  
+- Auto-launch URL:  http://192.168.10.148:8123/lovelace/0
 
-Controller: Omada Software Controller
+- 
+This gives me a clean control panel that doesn’t require interaction to unlock or navigate.
 
-The ER605 handles VLAN creation, and the EdgeSwitch enforces port-level tagging/untagging.
+---
 
-🗺 Network Map
+## Docker Stack (Summary)
 
-Visual overview of my physical + logical network layout:
+These are the containers running on the HP All-in-One:
 
-🔧 Verified VLAN Configuration (EdgeSwitch 8-Port 150W)
-VLAN ID	Name	Port 1	Port 2	Port 3	Port 4	Port 5	Port 6	Port 7	Port 8	Notes
-1	default	U	E	U	U	T	E	E	E	Home VLAN
-20	work	T	U	E	E	T	E	E	E	Work laptop VLAN
-30	IoT	T	E	E	E	T	E	E	E	IoT VLAN
+| Container | Purpose |
+|----------|---------|
+| homeassistant | Core automation and integrations |
+| pihole | DNS filtering, network stats |
+| matter-server | Matter/Thread onboarding for IoT |
 
-U: Untagged T: Tagged E: Excluded
+All containers are managed directly via CLI:
 
-Port summary:
 
-Port 1 → uplink to router
+---
 
-Port 2 → work laptop VLAN 20
+## Synology NAS Monitoring
 
-Ports 3–4 → home devices
+Synology DSM is integrated with Home Assistant and provides:
 
-Port 5 → trunk between switches
+- CPU usage  
+- RAM usage  
+- Volume capacity  
+- Drive health  
+- Drive temperature  
+- Upload/download throughput  
+- DSM update availability  
 
-🧰 Current Stack
-Routers / Wi-Fi
+This data appears in the tablet dashboard.
 
-TP-Link ER605
+---
 
-TP-Link BE550 (Wi-Fi 7)
+## Omada Network Monitoring
 
-TP-Link RE605X
+The Omada Controller (running on Windows PC) provides:
 
-Switching
+- Switch port status  
+- Router WAN online/offline state  
+- Internet connectivity sensor  
+- Device status (APs, switches, router)
 
-EdgeSwitch 150W
+Once HACS is added, full Omada Controller API integration will allow:
 
-EdgeSwitch 8XP
+- Wi-Fi client counts  
+- Connected devices  
+- SSID load  
+- AP performance  
 
-Servers / Controllers
+---
 
-HP All-in-One (Ubuntu) → Docker host
+## Next Improvements
 
-Omada Software Controller (Windows PC)
+- Complete HACS installation for advanced Omada integration  
+- Add a network health bar to the tablet dashboard  
+- Expand VLAN segmentation (LAN / IoT / Guest / Work)  
+- Route Pi-hole DNS across all VLANs  
+- Automate Home Assistant backups to Synology  
+- Add a monitoring stack (Grafana, Loki, Prometheus, or Wazuh)  
 
-Synology NAS for monitoring + storage
+---
 
-Docker Containers
-Container	Purpose
-homeassistant	Home automation platform
-pihole	DNS filtering + metrics
-matter-server	Matter protocol integration
-🏠 Home Assistant
+## Notes
 
-Home Assistant runs in Docker and integrates:
+This file serves as a deeper technical companion to the main README.  
+It documents what is actually running in my environment and the steps taken to expand the home lab.
 
-Lights, switches & media
 
-Ecobee thermostat
-
-Pi-hole stats (ads blocked, DNS queries, system status)
-
-Synology NAS monitoring (CPU, RAM, volume usage, temps, throughput)
-
-Omada network device sensors (switch ports, WAN status)
-
-Custom Lovelace dashboard optimized for a wall-mounted tablet
-
-This setup lets me consolidate network health, automation, and device stats into one UI.
-
-📱 Samsung Tab A Dashboard (SM-T580)
-
-A dedicated Home Assistant control panel mounted/running in Fully Kiosk Browser.
-
-Dashboard sections:
-
-Lights
-
-Climate
-
-Media
-
-Pi-hole overview
-
-NAS health metrics
-
-Omada access button
-
-Network status bar (internet up/down, Pi-hole active)
-
-Dashboard is landscape-optimized, touch-friendly, and designed for quick access.
-
-🧭 Next Steps
-
-Add Omada Controller API + Wi-Fi client monitoring
-
-Integrate VLANs fully (LAN, Work, IoT, Guest)
-
-Add Home Assistant backup automation to Synology
-
-Document Home Assistant dashboard YAML
-
-Add monitoring/logging stack (Grafana, Loki, or Wazuh)
-
-Begin documenting automation in Node-RED
-
-🗒 Notes
-
-This repo is a living lab journal — configs evolve as the network grows.
-Everything here reflects what’s actually running in my home environment.
