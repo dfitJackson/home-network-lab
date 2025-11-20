@@ -20,6 +20,97 @@ Goal: separate **personal**, **work**, and **IoT** traffic across my wired netwo
 The **Omada ER605** handles routing and VLAN assignment, while my **EdgeSwitch 8-Port 150W** enforces port-level segmentation.  
 The **TP-Link BE550** handles Wi-Fi and acts as a router within the Omada system.
 
+### 3) Home Assistant (Docker)
+
+Home Assistant is running in Docker on my HP All-in-One Ubuntu machine.  
+It handles automation, integrations, dashboards, and home monitoring.
+
+### Current Integrations
+- Ecobee (climate)
+- Chromecast (media control)
+- Pi-hole (DNS metrics)
+- Synology DSM (NAS monitoring)
+- Omada device sensors (router + switch status)
+- Matter Server (IoT onboarding)
+
+### Why Docker for HA?
+- Easy to update versions  
+- Container separation for HA, Pi-hole, and Matter  
+- No Home Assistant OS required  
+- Better control of storage paths and configs  
+
+
+### 4) Home Assistant Dashboard (Tablet View)
+
+A custom Lovelace dashboard is built specifically for a **Samsung Galaxy Tab A (SM-T580)** mounted as a control console.
+
+### Sections on the Dashboard
+- Lights  
+- Climate  
+- Media  
+- Pi-hole monitoring  
+- Synology NAS stats  
+- Omada quick-launch  
+- Network health tiles  
+
+Most cards were built using the UI editor (minimal YAML).  
+The dashboard is designed for landscape mode and touch-friendly tiles.
+
+
+## Tablet Setup (Fully Kiosk Browser)
+
+The tablet runs **Fully Kiosk Browser** to stay in permanent fullscreen.
+
+Key settings:
+- Fullscreen mode enabled  
+- Navigation bars hidden  
+- Screen stays awake  
+- Auto-launch URL:  http://192.168.10.148:8123/lovelace/0
+
+- 
+This gives me a clean control panel that doesn’t require interaction to unlock or navigate.
+
+---
+
+## Docker Stack (Summary)
+
+These are the containers running on the HP All-in-One:
+
+| Container | Purpose |
+|----------|---------|
+| homeassistant | Core automation and integrations |
+| pihole | DNS filtering, network stats |
+| matter-server | Matter/Thread onboarding for IoT |
+
+All containers are managed directly via CLI:
+
+
+---
+
+## Synology NAS Monitoring
+
+Synology DSM is integrated with Home Assistant and provides:
+
+- CPU usage  
+- RAM usage  
+- Volume capacity  
+- Drive health  
+- Drive temperature  
+- Upload/download throughput  
+- DSM update availability  
+
+This data appears in the tablet dashboard.
+
+---
+
+## Omada Network Monitoring
+
+The Omada Controller (running on Windows PC) provides:
+
+- Switch port status  
+- Router WAN online/offline state  
+- Internet connectivity sensor  
+- Device status (APs, switches, router)
 ### 🗺 Network Map
 Here’s the visual layout of my current setup.
 
