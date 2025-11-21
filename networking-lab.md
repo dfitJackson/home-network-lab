@@ -1,8 +1,4 @@
 
-title: "Networking & VLAN Segmentation Lab"
-description: "Segmenting Home, Work, and IoT networks using a TP-Link ER605 router, EdgeSwitch 150W, EdgeSwitch 8XP, and BE550 AP."
----
-
 # 📡 Networking & VLAN Segmentation Lab
 
 This lab documents how I segmented my home network into **Home**, **Work**, and **IoT** networks using VLANs, a TP-Link ER605 router, an EdgeSwitch 150W core switch, an EdgeSwitch 8XP for IoT, and a BE550 access point.
