@@ -1,4 +1,4 @@
-images/Jackson’s Home Lab.png
+
 # 🧠 Home Network Lab
 
 ### ⭐ About This Repository
