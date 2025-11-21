@@ -30,7 +30,6 @@ Segmenting Home, Work, and IoT traffic across my home network.
 
 ## 🌐 Network Topology (YAML)
 
-```yaml
 network_topology:
   diagram: |
     ISP Modem
