@@ -1,4 +1,3 @@
-/images/repo-banner.png
 
 # 🧠 Home Network Lab
 
