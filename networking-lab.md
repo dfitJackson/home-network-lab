@@ -32,21 +32,20 @@ This lab documents how I segmented my home network into **Home**, **Work**, and 
 
 ## 🌐 Network Topology (YAML)
 
-```yaml
 network_topology:
   diagram: |
     ISP Modem
         ↓
-    ER605 Router (Gateway)
-        ↓
-    EdgeSwitch 150W (Core Switch)
-        ├── BE550 AP (VLAN 1 – Home Wi-Fi)
-        ├── Personal PC (VLAN 1 – Home LAN)
-        ├── Work Laptop Dock (VLAN 20 – Work)
-        └── EdgeSwitch 8XP (VLAN 30 – IoT Uplink)
-              ├── Smart Plugs (VLAN 30)
-              ├── Cameras (VLAN 30)
-              └── Other IoT Devices (VLAN 30)
+    ER605 Router (Omada)
+        ├── TP-Link BE550 (AP Mode – Home Wi-Fi, VLAN 1)
+        └── EdgeSwitch 150W (Core Switch)
+              ├── Personal PC (VLAN 1 – Home LAN)
+              ├── Work Laptop Dock (VLAN 20 – Work)
+              └── EdgeSwitch 8XP (IoT Switch – VLAN 30)
+                    ├── Smart Plugs (VLAN 30)
+                    ├── Cameras (VLAN 30)
+                    └── Other IoT Devices (VLAN 30)
+
 ```
 
 ---
