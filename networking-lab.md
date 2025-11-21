@@ -31,7 +31,7 @@ This lab documents how I segmented my home network into **Home**, **Work**, and 
 ---
 
 ## 🌐 Network Topology (YAML)
-'''yaml
+```yaml
 network_topology:
   diagram: |
     ISP Modem
