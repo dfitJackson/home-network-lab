@@ -21,6 +21,7 @@ Segmenting Home, Work, and IoT traffic across my home network.
 ## 🛠️ Hardware Used
 - TP-Link **ER605** (Router/Gateway)
 - Ubiquiti **EdgeSwitch 8-Port 150W**
+- EdgeSwitch 8XP (IoT switch)
 - TP-Link **BE550 (Wi-Fi 7) in AP mode**
 - Pi-hole DNS filter
 - Windows 10, Windows 11, and Ubuntu clients
@@ -51,35 +52,35 @@ network_topology:
     iot_switch: "EdgeSwitch 8XP is fed from the 150W and carries VLAN 30 for PoE-based IoT devices."
     wireless: "BE550 runs in AP mode on VLAN 1 to provide Home Wi-Fi."
 
-    segmentation:
-      - "VLAN 1 – Home devices (PCs, Wi-Fi clients) on the 150W."
-      - "VLAN 20 – Work laptop docked into the 150W."
-      - "VLAN 30 – IoT devices hanging off the EdgeSwitch 8XP."
+  segmentation:
+    - "VLAN 1 – Home devices (PCs, Wi-Fi clients) on the 150W."
+    - "VLAN 20 – Work laptop docked into the 150W."
+    - "VLAN 30 – IoT devices hanging off the EdgeSwitch 8XP."
 
-    edgeswitch_150w_ports:
-      - port: 1
-        connection: "Uplink to ER605"
-        vlan: 1
-      - port: 2
-        connection: "Work laptop dock"
-        vlan: 20
-      - port: 3
-        connection: "BE550 AP (Home Wi-Fi)"
-        vlan: 1
-      - port: 5
-        connection: "Uplink to EdgeSwitch 8XP (IoT)"
-        vlan: 1
-      - port: 6
-        connection: "Personal PC"
-        vlan: 1
+  edgeswitch_150w_ports:
+    - port: 1
+      connection: "Uplink to ER605"
+      vlan: 1
+    - port: 2
+      connection: "Work laptop dock"
+      vlan: 20
+    - port: 3
+      connection: "BE550 AP (Home Wi-Fi)"
+      vlan: 1
+    - port: 5
+      connection: "Uplink to EdgeSwitch 8XP (IoT)"
+      vlan: 1
+    - port: 6
+      connection: "Personal PC"
+      vlan: 1
 
-    edgeswitch_8xp:
-      uplink_from: "EdgeSwitch 150W (port 5)"
-      vlan: 30
-      devices:
-        - "Smart plugs"
-        - "Cameras"
-        - "Other IoT / smart devices"
+  edgeswitch_8xp:
+    uplink_from: "EdgeSwitch 150W (port 5)"
+    vlan: 30
+    devices:
+      - "Smart plugs"
+      - "Cameras"
+      - "Other IoT / smart devices"
 vlan_configuration:
   vlans:
     - id: 1
@@ -115,7 +116,6 @@ vlan_configuration:
 
   notes:
     - "No tagged ports required — wireless did not support 802.1Q VLAN tags previously."
-
 router_interfaces:
   vlan_1:
     name: "LAN (Home)"
@@ -141,7 +141,6 @@ firewall_rules:
     - from: "IoT"
       to: "Internet"
       action: "allowed"
-
 validation_testing:
   ip_assignment:
     work: "192.168.20.x"
@@ -156,19 +155,19 @@ validation_testing:
 
   wifi_verification:
     be550_configuration: "Broadcasts only VLAN 1 (Home)"
-
 issues_encountered:
   - issue: "Lost internet when changing DHCP DNS"
     fix: "Pi-hole unreachable until routing updated"
   - issue: "BE550 kept reverting to router mode"
     fix: "Factory reset and reconfigured in AP mode"
-
+  - issue: "Old VLAN folder duplicated README content"
+    fix: "Rebuilt using clean YAML structure"
 summary:
   highlights:
     - "Practical VLAN segmentation"
-    - "Switch configuration: access/untagged/excluded modes"
+    - "Switch configuration (access, untagged, excluded modes)"
     - "Router VLAN interface setup"
-    - "Firewall rule design and isolation logic"
-    - "Network isolation and segmentation testing"
+    - "Firewall rule design"
+    - "Network isolation testing"
     - "Professional documentation practices"
   purpose: "Core component of my cybersecurity home lab portfolio."
