@@ -1,3 +1,4 @@
+[⬅ Back to Home](../README.md) • [➡ VLAN Lab](vlan-segmentation-lab.md)
 
 # 📡 Networking & VLAN Segmentation Lab
 
