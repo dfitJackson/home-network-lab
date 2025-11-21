@@ -27,9 +27,7 @@ Segmenting Home, Work, and IoT traffic across my home network.
 - Windows 10, Windows 11, and Ubuntu clients
 
 ---
-
-## 🌐 Network Topology (YAML)
-
+network_topology:
   diagram: |
     ISP Modem
         ↓
@@ -40,53 +38,45 @@ Segmenting Home, Work, and IoT traffic across my home network.
         ├── Personal PC (VLAN 1 – Home LAN)
         ├── Work Laptop Dock (VLAN 20 – Work)
         └── EdgeSwitch 8XP (VLAN 30 – IoT Uplink)
-                ├── Smart Plugs (VLAN 30)
-                ├── Cameras (VLAN 30)
-                └── Other IoT Devices (VLAN 30)
+              ├── Smart Plugs (VLAN 30)
+              ├── Cameras (VLAN 30)
+              └── Other IoT Devices (VLAN 30)
 
-  description:
-    router: "TP-Link ER605 handles routing, DHCP, and VLAN interfaces."
-    core_switch: "EdgeSwitch 150W is the main wired switch, with ports mapped to Home, Work, and IoT paths."
-    iot_switch: "EdgeSwitch 8XP is fed from the 150W and carries VLAN 30 for PoE-based IoT devices."
-    wireless: "BE550 runs in AP mode on VLAN 1 to provide Home Wi-Fi."
+  devices:
+    router:
+      name: "TP-Link ER605"
+      role: "Gateway router providing VLAN interfaces, routing, and DHCP"
+    core_switch:
+      name: "Ubiquiti EdgeSwitch 150W"
+      role: "Core wired switch mapping ports to Home, Work, and IoT paths"
+    iot_switch:
+      name: "Ubiquiti EdgeSwitch 8XP"
+      role: "PoE switch for IoT devices on VLAN 30"
+    ap:
+      name: "TP-Link BE550"
+      role: "Wi-Fi 7 access point for Home VLAN (VLAN 1 only)"
 
-  segmentation:
-    - "VLAN 1 – Home devices (PCs, Wi-Fi clients) on the 150W."
-    - "VLAN 20 – Work laptop docked into the 150W."
-    - "VLAN 30 – IoT devices hanging off the EdgeSwitch 8XP."
-
-  edgeswitch_150w_ports:
-    - port: 1
-      connection: "Uplink to ER605"
-      vlan: 1
-    - port: 2
-      connection: "Work laptop dock"
-      vlan: 20
-    - port: 3
-      connection: "BE550 AP (Home Wi-Fi)"
-      vlan: 1
-    - port: 5
-      connection: "Uplink to EdgeSwitch 8XP (IoT)"
-      vlan: 1
-    - port: 6
-      connection: "Personal PC"
-      vlan: 1
-
-  edgeswitch_8xp:
-    uplink_from: "EdgeSwitch 150W (port 5)"
-    vlan: 30
-    devices:
-      - "Smart plugs"
-      - "Cameras"
-      - "Other IoT / smart devices"
-vlan_configuration:
   vlans:
     - id: 1
       name: "Home"
+      subnet: "192.168.1.0/24"
+      usage:
+        - "Personal PC on EdgeSwitch 150W"
+        - "Home Wi-Fi clients on BE550"
     - id: 20
       name: "Work"
+      subnet: "192.168.20.0/24"
+      usage:
+        - "Work laptop via USB-C dock on EdgeSwitch 150W"
     - id: 30
       name: "IoT"
+      subnet: "192.168.30.0/24"
+      usage:
+        - "Smart plugs on EdgeSwitch 8XP"
+        - "Cameras on EdgeSwitch 8XP"
+        - "Other IoT sensors/devices on EdgeSwitch 8XP"
+
+
 
   port_assignments:
     - port: 1
