@@ -52,7 +52,16 @@ network_topology:
               ├── Cameras (VLAN 30)
               └── Other IoT Devices (VLAN 30)
 ```
-
+network_topology:
+  diagram: |
+    ISP Modem → ER605 Router → EdgeSwitch 150W
+                                        ↓
+                                EdgeSwitch 8XP (IoT Switch)
+                                        ↓
+                          ┌───────────┬───────────┬───────────┐
+                          │           │           │
+                   Smart Plugs   Cameras     IoT Sensors
+                     (VLAN 30)  (VLAN 30)    (VLAN 30)
 ---
 
 ## 🔧 VLAN Configuration (EdgeSwitch 150W)
