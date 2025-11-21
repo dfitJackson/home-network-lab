@@ -115,14 +115,58 @@ network_topology:
 
 ## ⚠️ Issues Encountered & Fixes
 
-- Changing DHCP DNS to Pi-hole too early caused **temporary loss of internet**  
-  → Fixed by restoring router DNS, then re-introducing Pi-hole carefully.
+### 1. Lost Internet When Changing DHCP DNS
+**Issue:** Setting Pi-hole as DNS caused devices to lose internet.  
+**Cause:** Pi-hole VLAN routing wasn’t configured yet.  
+**Fix:** Updated ER605 DHCP options + ensured Pi-hole reachable on VLAN 1.  
+**Result:** Devices regained internet and used Pi-hole for DNS filtering.
 
-- BE550 kept wanting to act as a **router**, not an AP  
-  → Fixed with a full factory reset and configuring **AP mode only** before connecting to the 150W.
+---
 
-- Old VLAN documentation was scattered and partially duplicated  
-  → Replaced with this single, clean lab write-up.
+### 2. BE550 Kept Reverting to Router Mode
+**Issue:** BE550 wouldn’t stay in AP Mode and restarted setup repeatedly.  
+**Cause:** Previous mesh settings + firmware auto-detection.  
+**Fix:** Full factory reset → Configure from scratch → AP Mode only.  
+**Result:** Stable Wi-Fi 7 access point running on VLAN 1.
+
+---
+
+### 3. Incorrect VLAN Assignments on the EdgeSwitch 150W
+**Issue:** Ports occasionally mapped to the wrong VLAN (excluded/untagged mix-ups).  
+**Cause:** UI terminology differences between Ubiquiti and standard VLAN naming.  
+**Fix:** Rebuilt VLAN table using only Untagged/Excluded (no 802.1Q tagging).  
+**Result:** Stable segmentation between Home, Work, and IoT VLANs.
+
+---
+
+### 4. IoT Network Not Receiving DHCP
+**Issue:** IoT devices received no IP addresses via the 8XP.  
+**Cause:** ER605 VLAN 30 interface missing after changes.  
+**Fix:** Reboot 8XP → Refresh DHCP leases → Recreate VLAN interface on ER605.  
+**Result:** IoT devices receiving proper DHCP on 192.168.30.x.
+
+---
+
+### 5. ER605 Controller Sync Problems
+**Issue:** ER605 would not apply new configuration from the controller.  
+**Cause:** Controller mismatched state + corrupted previous adoption attempt.  
+**Fix:** Multiple factory resets, re-adopt, then apply config cleanly.  
+**Result:** Controller now pushes VLAN, DHCP, and firewall rules reliably.
+
+---
+
+### 6. Home VLAN Lost Internet During Testing
+**Issue:** Internet dropped when switching WAN DNS & Pi-hole routing.  
+**Cause:** Pi-hole was unreachable until routes were rebuilt.  
+**Fix:** Updated DNS settings → Confirmed Pi-hole static IP → Tested VLAN paths.  
+**Result:** Stable Home network with working Pi-hole DNS filtering.
+
+---
+
+### 7. Old VLAN Folder Was Duplicate / Broken
+**Issue:** Old GitHub VLAN folder duplicated README content and caused confusion.  
+**Fix:** Deleted the old folder → Replaced with new clean YAML-structured write-up.  
+**Result:** Clean, professional documentation with proper formatting.
 
 ---
 
