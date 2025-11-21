@@ -1,4 +1,4 @@
-# 🔧 VLAN Segmentation Lab  
+ # 🔧 VLAN Segmentation Lab  
 Hands-on VLAN segmentation across Home, Work, and IoT networks using the TP-Link ER605, EdgeSwitch 150W, and EdgeSwitch 8XP.
 
 ---
@@ -48,6 +48,8 @@ EdgeSwitch 150W (Core Switch)
            ├── Smart Plugs (VLAN 30)
            ├── Cameras (VLAN 30)
            └── IoT Sensors (VLAN 30)
+---
+
 ## 🧩 EdgeSwitch 150W — VLAN Port Mapping
 
 | Port | Connected Device          | VLAN Mode    | VLAN ID |
