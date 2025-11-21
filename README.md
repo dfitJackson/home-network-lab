@@ -1,11 +1,34 @@
-# home-network-lab
-Documenting my home network learning journey
 # 🧠 Home Network Lab
 
-This repo is where I’m tracking what I’ve learned (and broken, then fixed) while building out my home network.  
+### ⭐ About This Repository
+This repository showcases my hands-on cybersecurity work, including network engineering, penetration testing labs, GRC documentation, Docker deployments, Pi-hole DNS filtering, and Omada-based network segmentation. It demonstrates both technical and governance-focused security skills through real home lab projects.
+
+This is also where I’m documenting what I’ve learned (and broken, then fixed) while building out my home network.  
 Each project is hands-on and tied to something I actually run in my house.
 
 ---
+
+## 📘 Table of Contents
+- [Home Network Diagram](#home-network-map)
+- [VLAN Segmentation Lab](VLAN)
+- [Pi-hole Deployment](network-projects/pihole.md)
+- [Docker Home Assistant Lab](home-assistant-docker.md)
+- [Penetration Testing Lab](penetration-testing-labs/first-exploit.md)
+- [GRC Projects](grc-projects)
+
+---
+
+## 🧠 Skills Demonstrated
+- Network Security (VLANs, trunking, segmentation)
+- Home Lab Architecture & Documentation
+- Penetration Testing (Nmap, Metasploit, Kali Linux)
+- Logging & Monitoring (Pi-hole, router logs)
+- Docker & Containerization
+- Governance, Risk & Compliance (ISO 27001, SOC 2, risk registers)
+- Threat Analysis & Reporting
+
+
+
 
 ## 🧩 Projects So Far
 
