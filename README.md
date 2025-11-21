@@ -1,4 +1,5 @@
-![Jackson's Security Lab]( "images/Jackson’s Home Lab.png" )
+![Jackson's Security Lab](images/jacksons_security_lab_banner.png)
+
 
 # 🧠 Home Network Lab
 
