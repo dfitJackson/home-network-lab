@@ -47,5 +47,15 @@ It’s a learning exercise to connect real configurations (like VLANs, Pi-hole, 
 - Continue improving documentation maturity to reflect ISO 27001 Annex A coverage.
 
 ---
-### 🧭 Navigation  
-🏠 [Back to Home](/README.md) • ⬆️ [Top](#)
+
+### 🧭 Navigation
+
+🏡 [Home](../README.md)  
+📁 [Evidence Folder](evidence/README.md)  
+📘 [Control Mapping](control-mapping.md)  
+📗 [ISO 27001 Gap Analysis](iso27001-gap-analysis.md)  
+📙 [Policy Hierarchy](policy-hierarchy.md)  
+📕 [Risk Register](risk-register.md)  
+⬅️ [Back to GRC Projects](README.md)  
+⬆️ [Top](#)
+
