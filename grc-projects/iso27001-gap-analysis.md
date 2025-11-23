@@ -1,3 +1,7 @@
+
+🏠 [Back to Home](/README.md) • ➡️ [GRC Projects](/grc-projects/)
+
+
 # 🧩 ISO 27001 Gap Analysis
 
 This page is my working ISO 27001 gap analysis — comparing what I currently have in place in my lab to the Annex A control areas.  
@@ -41,3 +45,7 @@ It’s a learning exercise to connect real configurations (like VLANs, Pi-hole, 
 - Build a **control-mapping.md** document to cross-reference ISO 27001, NIST CSF, and CIS v8.  
 - Automate periodic backups of EdgeSwitch and ER605 configs.  
 - Continue improving documentation maturity to reflect ISO 27001 Annex A coverage.
+
+---
+### 🧭 Navigation  
+🏠 [Back to Home](/README.md) • ⬆️ [Top](#)
