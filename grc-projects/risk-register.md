@@ -1,3 +1,6 @@
+  
+🏠 [Back to Home](/README.md) • ➡️ [GRC Projects](/grc-projects/)
+
 # 🧾 Risk Register
 
 This page is where I track and document risks as part of my GRC learning and lab work.  
@@ -30,3 +33,7 @@ Each entry helps me connect theory (like ISO 27005 and NIST RMF) with how risk m
 - Add references to ISO 27005 risk assessment steps.  
 - Create a “Control Mapping” table linking these risks to specific framework controls (ISO/NIST).  
 - Expand risk entries as my network and lab environments grow.
+
+---
+### 🧭 Navigation  
+🏠 [Back to Home](/README.md) • ⬆️ [Top](#)
