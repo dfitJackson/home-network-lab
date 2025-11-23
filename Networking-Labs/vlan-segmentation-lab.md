@@ -157,4 +157,9 @@ This VLAN lab demonstrates:
 
 A fully segmented, production-style VLAN setup — built inside a home lab.
 
+---
+
+### 🧭 Navigation
+← [Back to Networking Labs](./README.md)  
+→ [Networking Lab Overview](./networking-lab-overview.md)
 
