@@ -16,5 +16,14 @@ I’m using this area to apply what I’ve learned from cybersecurity frameworks
 ---
 *Work in progress as I continue to build out my GRC experience.*
 ---
-### 🧭 Navigation  
-🏠 [Back to Home](/README.md) • ⬆️ [Top](#)
+
+### 🧭 Navigation
+
+🏡 [Home](../README.md)  
+📁 [Evidence Folder](evidence/README.md)  
+📘 [Control Mapping](control-mapping.md)  
+📗 [ISO 27001 Gap Analysis](iso27001-gap-analysis.md)  
+📙 [Policy Hierarchy](policy-hierarchy.md)  
+📕 [Risk Register](risk-register.md)  
+⬅️ [Back to GRC Projects](README.md)  
+⬆️ [Top](#)
