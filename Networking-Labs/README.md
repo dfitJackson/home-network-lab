@@ -10,5 +10,5 @@ This folder contains hands-on networking projects including:
 
 Each lab is written step-by-step and includes diagrams, configs, and results.
 
-🡆 See: **vlan-segmentation-lab.md**  
-🡆 See: **networking-lab-overview.md**
+➡️ See: [vlan-segmentation-lab.md](vlan-segmentation-lab.md)  
+➡️ See: [networking-lab-overview.md](networking-lab-overview.md)
