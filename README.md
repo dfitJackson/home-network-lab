@@ -188,3 +188,10 @@ Here’s the visual layout of my current setup.
 This repo is more like a lab journal than a polished guide.  
 Configs are live and evolve as I learn — everything here reflects what’s actually running in my setup.
 
+## 🧭 Navigation
+
+➡️ [Networking Labs](./Networking-Labs/README.md)  
+➡️ [GRC Projects](./grc-projects/README.md)  
+➡️ [Pentesting Labs](./penetration-testing-labs/first-exploit.md)  
+🔝 [Top](#)
+
