@@ -1,6 +1,7 @@
 <a id="top"></a>
 
-[⬅ Back to Overview](networking-lab-overview.md) • [⬆ Home](../README.md)
+🏠 [Home](../README.md) • ⬅️ [Networking Labs](./README.md) • ⬅️ [Networking Lab Overview](./networking-lab-overview.md)
+
 
  # 🔧 VLAN Segmentation Lab  
 Hands-on VLAN segmentation across Home, Work, and IoT networks using the TP-Link ER605, EdgeSwitch 150W, and EdgeSwitch 8XP.
@@ -165,7 +166,10 @@ A fully segmented, production-style VLAN setup — built inside a home lab.
 
 ---
 
-### 🧭 Navigation
-⬅️ [Back to Networking Labs](../Networking-Labs/README.md)  
+## 🧭 Navigation
+
 🏠 [Home](../README.md)  
-➡️ [Next: VLAN Segmentation Lab](./vlan-segmentation-lab.md)
+⬅️ [Networking Labs](./README.md)  
+⬅️ [Networking Lab Overview](./networking-lab-overview.md)  
+🔝 [Top](#)
+
