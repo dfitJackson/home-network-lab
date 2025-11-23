@@ -1,3 +1,6 @@
+
+🏠 [Back to Home](/README.md)
+
 # 🧭 GRC Projects
 
 This section of my lab focuses on Governance, Risk, and Compliance (GRC) projects.  
@@ -12,3 +15,6 @@ I’m using this area to apply what I’ve learned from cybersecurity frameworks
 
 ---
 *Work in progress as I continue to build out my GRC experience.*
+---
+### 🧭 Navigation  
+🏠 [Back to Home](/README.md) • ⬆️ [Top](#)
