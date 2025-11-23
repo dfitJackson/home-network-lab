@@ -1,4 +1,5 @@
-[⬅ Back to Home](../README.md) • [➡ VLAN Lab](vlan-segmentation-lab.md)
+⬅️ [Back to Home](../README.md) • ➡️ [VLAN Lab](vlan-segmentation-lab.md)
+
 
 # 📡 Networking & VLAN Segmentation Lab
 
@@ -181,5 +182,9 @@ This lab demonstrates:
 - Isolating **IoT** devices on a separate switch and VLAN  
 - Documenting a home lab in a way that’s readable for recruiters and technical reviewers
 
-[⬅ Back to Home](README.md)
+
+---
+
+### 🧭 Navigation
+⬅️ [Back to Home](../README.md) • 🔝 [Top](#networking--vlan-segmentation-lab)
 
