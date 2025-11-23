@@ -35,5 +35,16 @@ Each entry helps me connect theory (like ISO 27005 and NIST RMF) with how risk m
 - Expand risk entries as my network and lab environments grow.
 
 ---
-### 🧭 Navigation  
-🏠 [Back to Home](/README.md) • ⬆️ [Top](#)
+---
+
+### 🧭 Navigation
+
+🏡 [Home](../README.md)  
+📁 [Evidence Folder](evidence/README.md)  
+📘 [Control Mapping](control-mapping.md)  
+📗 [ISO 27001 Gap Analysis](iso27001-gap-analysis.md)  
+📙 [Policy Hierarchy](policy-hierarchy.md)  
+📕 [Risk Register](risk-register.md)  
+⬅️ [Back to GRC Projects](README.md)  
+⬆️ [Top](#)
+
