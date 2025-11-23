@@ -1,6 +1,7 @@
 <a id="top"></a>
 
-⬅️ [Back to Home](../README.md) • ➡️ [VLAN Lab](vlan-segmentation-lab.md)
+🏠 [Home](../README.md) • ⬅️ [Networking Labs](./README.md) • ➡️ [VLAN Segmentation Lab](./vlan-segmentation-lab.md)
+
 
 
 # 📡 Networking & VLAN Segmentation Lab
@@ -187,6 +188,10 @@ This lab demonstrates:
 
 ---
 
-### 🧭 Navigation
-⬅️ [Back to Home](../README.md) • 🔝 [Top](#networking--vlan-segmentation-lab)
+## 🧭 Navigation
+
+🏠 [Home](../README.md)  
+⬅️ [Networking Labs](./README.md)  
+➡️ [VLAN Segmentation Lab](./vlan-segmentation-lab.md)  
+🔝 [Top](#)
 
