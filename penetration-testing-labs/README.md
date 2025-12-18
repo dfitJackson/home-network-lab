@@ -1,5 +1,16 @@
 # Penetration Testing Portfolio (Labs + Real-World Experience)
 
+## Repository Structure
+
+- 🔬 **Lab Projects**  
+  Home lab penetration testing exercises used for skill development.  
+  → [View lab projects](./lab-projects/)
+
+- 🏢 **Real-World Experience (Sanitized)**  
+  High-level summaries of professional penetration testing work.  
+  → [View real-world experience](./real-world-experience/)
+
+
 ## Overview
 
 This directory represents my **penetration testing portfolio**, combining:
