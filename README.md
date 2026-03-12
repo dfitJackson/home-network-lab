@@ -12,6 +12,7 @@ Each project is hands-on and tied to something I actually run in my house.
 ---
 
 ## 📘 Table of Contents
+- [Professional Experience](#professional-experience)
 - [Home Network Diagram](#home-network-map)
 - [VLAN Segmentation Lab](VLAN)
 - [Pi-hole Deployment](network-projects/pihole.md)
@@ -29,8 +30,33 @@ Each project is hands-on and tied to something I actually run in my house.
 - Docker & Containerization
 - Governance, Risk & Compliance (ISO 27001, SOC 2, risk registers)
 - Threat Analysis & Reporting
+- Web Application Security Testing (CSP, HSTS, session management, clickjacking, TLS)
+- Real-World Client Engagement Support (contract penetration testing, structured reporting)
+- OWASP Testing Guide v4.2 Methodology
 
 
+## 💼 Professional Experience
+
+### 🕵️ Contract Penetration Test — Web Application Portfolio Assessment (Dec 2025)
+
+Completed a paid contract engagement supporting a senior penetration tester on a real-world web application security assessment.
+
+**Scope:** 30 staging and pre-production web application endpoints across a multi-brand portfolio  
+**Role:** Junior Penetration Tester (contract — primarily unauthenticated, URL-based scope)  
+**Methodology:** OWASP Testing Guide v4.2  
+**Deliverables:** Formal findings report + weekly status updates to senior tester
+
+**Key findings identified and documented:**
+- 🔴 **High** — Critical CSP misconfiguration (wildcard directive disabling all XSS protections)
+- 🔴 **High** — Unauthenticated internal testing tool exposed publicly (information disclosure + DoS vector)
+- 🟡 **Medium** — Insecure session management (missing Secure cookie flag — 18 of 30 hosts)
+- 🟡 **Medium** — Missing anti-framing headers enabling clickjacking — 6 endpoints
+- 🟢 **Low** — Legacy TLS CBC cipher suites across all IIS-hosted environments
+- 🟢 **Low** — HTTP TRACE method enabled across all IIS-hosted endpoints
+
+**Tools used:** Nmap · Burp Suite · curl · custom bash scripts · OWASP ZAP
+
+➡️ [Full Write-Up](https://github.com/dfitJackson/home-network-lab/blob/main/professional-experience/web-app-portfolio-assessment.md)
 
 
 ## 🧩 Projects So Far
@@ -179,7 +205,8 @@ Here’s the visual layout of my current setup.
 
 ## 🧭 Next Steps
 - Add Omada APs that support VLAN tagging.  
-- Extend Pi-hole DNS coverage across all VLANs.  
+- Extend Pi-hole DNS coverage across all VLANs.
+- ~~Complete and publish Dec 2025 contract pen test write-up~~
 - Begin documenting automation and monitoring using Node-RED.  
 
 ---
