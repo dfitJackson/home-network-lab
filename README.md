@@ -217,6 +217,7 @@ Configs are live and evolve as I learn — everything here reflects what’s act
 
 ## 🧭 Navigation
 
+➡️ [Professional Experience](#professional-experience)
 ➡️ [Networking Labs](./Networking-Labs/README.md)  
 ➡️ [GRC Projects](./grc-projects/README.md)  
 ➡️ [Pentesting Labs](./penetration-testing-labs/first-exploit.md)  
