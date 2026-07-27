@@ -32,7 +32,8 @@ The current office connection uses wireless backhaul rather than the former phys
 ### Server and Storage
 
 - **Primary host:** Dell OptiPlex 7050 running Ubuntu and Docker
-- **Storage:** Synology DS218play NAS
+- **Current NAS:** Synology DS920+ with two 8 TB hard drives and a 1 TB SSD cache
+- **Previous NAS:** Synology DS218play, retired from the primary-storage role after the completed July 2026 migration to the DS920+
 - **Previous host:** HP All-in-One Ubuntu server, now decommissioned after services were migrated to the Dell
 
 ### Active Security and Administration Services
@@ -130,7 +131,7 @@ The GRC section applies risk-management and security-control concepts to lab inf
 ## Current Documentation Priorities
 
 1. Add a current network diagram reflecting wireless office backhaul
-2. Update the historical VLAN documents with consistent status notices
+2. Document the completed Synology DS920+ migration and current storage configuration
 3. Expand the Wazuh section with architecture, agent onboarding, and validation
 4. Document the current Authentik implementation
 5. Repair and strengthen penetration-testing lab formatting and remediation sections
