@@ -10,17 +10,36 @@
 
 The active network uses:
 
-- TP-Link ER605 gateway
-- TP-Link BE550 as the primary Wi-Fi platform
-- TP-Link RE705X providing wireless backhaul to the upstairs office
-- Ethernet handoff from the RE705X to an EdgeSwitch
+- TP-Link BE550 as the current router, gateway, and primary Wi-Fi platform
+- TP-Link RE705X in the upstairs office using Wi-Fi backhaul to the BE550
+- Ethernet from the RE705X into the Ubiquiti switching environment
+- Ubiquiti EdgeSwitch 8-Port 150W and EdgeSwitch 8XP, both operational through the upstairs office connection
+- TP-Link RE605X in the wife's office using Wi-Fi backhaul to the BE550
 - A flat LAN without active VLAN segmentation
 
-The previous physical Ethernet trunk to the office was removed. The wireless bridge restored connectivity but does not currently carry the tagged VLAN design used in the earlier segmented network.
+The TP-Link ER605 is not currently in the active routing path. It was rolled back when the preferred wired configuration became impractical while the house was being prepared for sale.
+
+The current inter-floor path is wireless. This keeps the upstairs lab operational without exposed cabling, but VLAN segmentation has been intentionally rolled back until a suitable concealed Ethernet path can be installed from the main floor to the upstairs office.
+
+## Current Topology
+
+```text
+Internet
+   │
+   ▼
+TP-Link BE550
+Router / Gateway / Primary Wi-Fi
+   │
+   ├── Wi-Fi backhaul ──> RE605X ──> Wife's office
+   │
+   └── Wi-Fi backhaul ──> RE705X ──> Ethernet ──> EdgeSwitch 8-Port 150W
+                                                     │
+                                                     └── EdgeSwitch 8XP
+```
 
 ## Completed—Historical Project
 
-The VLAN project documented in this folder was a real implementation using the ER605 and Ubiquiti EdgeSwitch hardware. Home, Work, and IoT network segments were configured and tested before the wired backhaul was removed.
+The VLAN project documented in this folder was a real implementation using the ER605 and Ubiquiti EdgeSwitch hardware. Home, Work, and IoT network segments were configured and tested before the current topology was simplified.
 
 The project remains part of this portfolio because it demonstrates:
 
@@ -31,7 +50,11 @@ The project remains part of this portfolio because it demonstrates:
 - Documentation of failures, corrections, and lessons learned
 - Adaptation when physical network constraints changed
 
-It should not be interpreted as the network’s current running configuration.
+It should not be interpreted as the network's current running configuration.
+
+## Planned Network Work
+
+The main infrastructure goal is to create a concealed Ethernet path from the main floor to the upstairs office. Once a reliable wired backbone is available, the ER605 and VLAN segmentation can be reconsidered and rebuilt as a new current implementation rather than simply restoring old assumptions.
 
 ## Documents
 
