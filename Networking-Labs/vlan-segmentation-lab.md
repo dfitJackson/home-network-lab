@@ -19,7 +19,7 @@ The goal was to practise the complete lifecycle of a segmentation project:
 3. Assign representative endpoints
 4. Validate addressing, internet access, DNS, and isolation
 5. Diagnose configuration failures
-6. Record lessons and eventual decommissioning
+6. Record lessons and eventual rollback
 
 ## Historical Lab Environment
 
@@ -133,28 +133,41 @@ The lab demonstrated:
 - DNS troubleshooting across segmented networks
 - Isolation testing and evidence-based validation
 - Recovery from misconfiguration
-- Documentation of both implementation and retirement
+- Documentation of both implementation and rollback
 
-## Decommissioning
+## Rollback and Current Network
 
-The segmented architecture was later retired after the physical Ethernet connection to the upstairs office was removed.
+The segmented architecture was rolled back after the preferred inter-floor wired configuration became impractical. The house construction has made a concealed Ethernet run from the main floor to the upstairs office difficult, while exposed cabling is not suitable while the house is being prepared for sale.
 
-The replacement office path is:
+The ER605 is therefore not part of the active routing path. The BE550 currently performs the router, gateway, and primary Wi-Fi roles.
+
+The active topology is:
 
 ```text
-ER605 gateway
-  └── BE550 primary Wi-Fi
-        └── Wireless backhaul to RE705X
-              └── Ethernet handoff to EdgeSwitch
+Internet
+   │
+   ▼
+TP-Link BE550
+Router / Gateway / Primary Wi-Fi
+   │
+   ├── Wi-Fi backhaul ──> RE605X ──> Wife's office
+   │
+   └── Wi-Fi backhaul ──> RE705X ──> Ethernet ──> EdgeSwitch 8-Port 150W
+                                                     │
+                                                     └── EdgeSwitch 8XP
 ```
 
-This restored office and switch connectivity, but the wireless backhaul does not currently carry the tagged trunk used by the VLAN project. The active network therefore operates as a flat LAN without VLAN segmentation.
+The RE705X keeps the upstairs lab connected and provides Ethernet to the Ubiquiti switches, but the inter-floor backhaul itself is wireless. Both EdgeSwitches are operational in the current network.
 
-The project remains documented because the implementation and validation were completed; only its operational status changed.
+VLAN segmentation is intentionally not active in this configuration. The current network operates as a flat LAN.
+
+The project remains documented because the implementation and validation were completed; the operational environment later changed.
 
 ## Security Reflection
 
-Returning to a flat network reduces isolation between device categories. That tradeoff is documented rather than hidden. A future segmented design would require a transport path and wireless infrastructure that can reliably carry the intended VLANs end to end.
+Returning to a flat network reduces isolation between device categories. That tradeoff is documented rather than hidden.
+
+The preferred future path is to install concealed Ethernet between the main floor and upstairs office. Once that wired backbone is available, the ER605 and VLAN design can be rebuilt, revalidated, and documented as a new current implementation rather than assuming the historical configuration can simply be reused unchanged.
 
 ---
 
