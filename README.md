@@ -47,7 +47,7 @@ A future infrastructure goal is to install a concealed Ethernet run from the mai
 |---|---|---|
 | **Wazuh** | SIEM platform using Wazuh Manager, Indexer/OpenSearch, and Dashboard | **In Progress** |
 | **Pi-hole** | Network DNS filtering and query visibility | **Current** |
-| **Authentik** | Identity and access management for self-hosted services | **Current** |
+| **Authentik** | Identity and access management platform for self-hosted services | **In Progress** |
 | **Docker / Portainer** | Container deployment and administration | **Current** |
 | **Home Assistant / Matter Server** | Home automation, integrations, and device management | **Current** |
 
@@ -76,9 +76,9 @@ Runs a Docker-based Wazuh single-node environment consisting of the Manager, Ind
 
 Pi-hole runs in Docker on the Dell server and provides DNS filtering and network-query visibility. The deployment has included static addressing, DHCP/DNS troubleshooting, allowlisting for self-hosted services, and validation of DNS query flow.
 
-### Authentik Identity and Access Management — Current
+### Authentik Identity and Access Management — In Progress
 
-Authentik provides an identity layer for the self-hosted environment. The current deployment includes the Authentik server, worker, and PostgreSQL database running as Docker services.
+Authentik is deployed on the Dell OptiPlex 7050 as a Docker-based identity and access management platform. The server, worker, and PostgreSQL components are operational. Application integration, SSO, and MFA use cases remain in progress and should not yet be treated as a fully implemented identity layer for the self-hosted environment.
 
 ### Penetration Testing Labs
 
@@ -139,5 +139,5 @@ The GRC section applies risk-management and security-control concepts to lab inf
 2. Plan a concealed Ethernet path from the main floor to the upstairs office
 3. Reintroduce the ER605 and rebuild VLAN segmentation when a suitable wired backbone is available
 4. Expand the Wazuh section with architecture, agent onboarding, and validation
-5. Document the current Authentik implementation
+5. Complete Authentik application integration, SSO/MFA testing, and documentation
 6. Modernize the GRC material and framework references
