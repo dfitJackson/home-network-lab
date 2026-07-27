@@ -118,6 +118,7 @@ The GRC section applies risk-management and security-control concepts to lab inf
 | Area | Description | Status |
 |---|---|---|
 | [Networking Labs](./Networking-Labs/README.md) | Current network architecture plus historical VLAN implementation, validation, and troubleshooting | **Current / Historical** |
+| [Systems Labs](./Systems-Labs/README.md) | Storage, server, migration, and systems administration projects | **Active** |
 | [Penetration Testing](./penetration-testing-labs/README.md) | Controlled labs and sanitized professional summaries | **Active** |
 | [Wazuh SIEM](./WAZUH-SIEM/Runbooks/iam-admin-user.md) | SIEM deployment and operational runbooks | **In Progress** |
 | [GRC Projects](./grc-projects/README.md) | Risk, controls, policies, and framework exercises | **Updating** |
