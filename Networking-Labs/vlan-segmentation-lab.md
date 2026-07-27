@@ -161,6 +161,18 @@ The RE705X keeps the upstairs lab connected and provides Ethernet to the Ubiquit
 
 VLAN segmentation is intentionally not active in this configuration. The current network operates as a flat LAN.
 
+### Current EdgeSwitch 150W Cleanup
+
+The historical VLAN definitions remain on the EdgeSwitch 150W, but they are not being used for active segmentation.
+
+- VLAN 1 is the active untagged LAN for current client connectivity.
+- VLAN 20 (Work) remains defined but is not active for the current work-laptop connection.
+- VLAN 30 (IoT) remains defined but is not active in the current network.
+- Port 2 is connected to the work laptop and now operates as an untagged VLAN 1 client/access port.
+- The old trunk flag on Port 2 was removed during the rollback cleanup because the work laptop no longer requires tagged VLAN traffic.
+
+This cleanup aligns the switch with the present flat-LAN architecture while preserving the historical VLAN definitions for reference and future redesign work.
+
 The project remains documented because the implementation and validation were completed; the operational environment later changed.
 
 ## Security Reflection
