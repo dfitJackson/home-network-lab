@@ -21,13 +21,18 @@ The environment has changed over time. To keep the portfolio accurate, projects 
 
 ### Network
 
-- **Gateway:** TP-Link ER605
+- **Current router / gateway:** TP-Link BE550
 - **Primary Wi-Fi:** TP-Link BE550
-- **Office connection:** TP-Link RE705X wireless backhaul with Ethernet handoff to an EdgeSwitch
-- **Current network state:** Flat LAN; VLAN segmentation is not currently active
+- **Upstairs office:** TP-Link RE705X using Wi-Fi backhaul to the BE550, with Ethernet from the RE705X into the Ubiquiti switching environment
+- **Wife's office:** TP-Link RE605X using Wi-Fi backhaul to the BE550
+- **Managed switching:** Ubiquiti EdgeSwitch 8-Port 150W and EdgeSwitch 8XP are both operational through the upstairs office connection
+- **Current network state:** Flat LAN; VLAN segmentation is rolled back and not currently active
+- **ER605 status:** Removed from the active routing path after the network was simplified because the required wired configuration was not practical while the house is being prepared for sale
 - **Telus equipment:** Used separately for the Telus Smart Security system
 
-The current office connection uses wireless backhaul rather than the former physical Ethernet trunk. This restored practical connectivity but does not carry the tagged VLAN design used in the earlier segmented network.
+The current design prioritizes reliable connectivity without exposed inter-floor Ethernet. The BE550 now performs routing and primary Wi-Fi duties. Upstairs connectivity reaches the RE705X over Wi-Fi, then transitions to Ethernet for the office switching environment. This keeps the lab and both Ubiquiti switches online, but the inter-floor backhaul remains wireless.
+
+A future infrastructure goal is to install a concealed Ethernet run from the main floor to the upstairs office. That would provide a wired backbone for the office and create a better foundation for restoring the ER605 and VLAN segmentation later.
 
 ### Server and Storage
 
@@ -54,7 +59,7 @@ The Dell also hosts personal productivity, AI, media, and request-management ser
 
 Designed, implemented, and validated separate Home, Work, and IoT network segments using the ER605 and Ubiquiti EdgeSwitch hardware. Testing included DHCP assignment, routing, isolation, DNS reachability, and troubleshooting across router and switch configurations.
 
-The segmented design was later decommissioned when the physical Ethernet backhaul was removed. The network now uses an RE705X wireless bridge to reach the office switch and operates as a flat LAN.
+The segmented design was later rolled back when the physical Ethernet path required for the preferred topology was no longer practical. The active network now uses the BE550 as the router, wireless backhaul to the RE705X and RE605X, and a flat LAN. The VLAN work remains documented as a completed historical lab and is planned for future reimplementation once a suitable wired backbone can be installed.
 
 - [Networking Labs](./Networking-Labs/README.md)
 - [VLAN Segmentation Lab](./Networking-Labs/vlan-segmentation-lab.md)
@@ -112,7 +117,7 @@ The GRC section applies risk-management and security-control concepts to lab inf
 
 | Area | Description | Status |
 |---|---|---|
-| [Networking Labs](./Networking-Labs/README.md) | Network design, VLAN implementation, validation, and troubleshooting | **Completed—Historical / Updating** |
+| [Networking Labs](./Networking-Labs/README.md) | Current network architecture plus historical VLAN implementation, validation, and troubleshooting | **Current / Historical** |
 | [Penetration Testing](./penetration-testing-labs/README.md) | Controlled labs and sanitized professional summaries | **Active** |
 | [Wazuh SIEM](./WAZUH-SIEM/Runbooks/iam-admin-user.md) | SIEM deployment and operational runbooks | **In Progress** |
 | [GRC Projects](./grc-projects/README.md) | Risk, controls, policies, and framework exercises | **Updating** |
@@ -130,9 +135,9 @@ The GRC section applies risk-management and security-control concepts to lab inf
 
 ## Current Documentation Priorities
 
-1. Add a current network diagram reflecting wireless office backhaul
-2. Document the completed Synology DS920+ migration and current storage configuration
-3. Expand the Wazuh section with architecture, agent onboarding, and validation
-4. Document the current Authentik implementation
-5. Repair and strengthen penetration-testing lab formatting and remediation sections
+1. Add a current network diagram showing the BE550, RE705X, RE605X, wireless backhaul, and upstairs EdgeSwitches
+2. Plan a concealed Ethernet path from the main floor to the upstairs office
+3. Reintroduce the ER605 and rebuild VLAN segmentation when a suitable wired backbone is available
+4. Expand the Wazuh section with architecture, agent onboarding, and validation
+5. Document the current Authentik implementation
 6. Modernize the GRC material and framework references
