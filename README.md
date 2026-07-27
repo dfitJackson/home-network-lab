@@ -1,225 +1,138 @@
 ![Jackson's Security Lab](images/jacksons_security_lab_banner.png)
 
+# Home Network & Cybersecurity Lab
 
-# 🧠 Home Network Lab
+This repository documents hands-on cybersecurity, networking, systems administration, and governance work completed in my home lab and through sanitized professional experience.
 
-### ⭐ About This Repository
-This repository showcases my hands-on cybersecurity work, including network engineering, penetration testing labs, GRC documentation, Docker deployments, Pi-hole DNS filtering, and Omada-based network segmentation. It demonstrates both technical and governance-focused security skills through real home lab projects.
+The environment has changed over time. To keep the portfolio accurate, projects are identified as **Current**, **In Progress**, **Completed—Historical**, or **Planned**. Historical projects remain documented because they represent systems that were implemented and validated, even when they are no longer part of the active network.
 
-This is also where I’m documenting what I’ve learned (and broken, then fixed) while building out my home network.  
-Each project is hands-on and tied to something I actually run in my house.
+## Project Status
 
----
+| Status | Meaning |
+|---|---|
+| **Current** | Running in the present environment |
+| **In Progress** | Operational or actively being developed, but not yet complete |
+| **Completed—Historical** | Implemented and validated previously, then retired or replaced |
+| **Planned** | Identified for future work but not yet implemented |
 
-## 📘 Table of Contents
-- [Professional Experience](#professional-experience)
-- [Home Network Diagram](#home-network-map)
-- [VLAN Segmentation Lab](VLAN)
-- [Pi-hole Deployment](network-projects/pihole.md)
-- [Docker Home Assistant Lab](home-assistant-docker.md)
-- [Penetration Testing Lab](penetration-testing-labs/first-exploit.md)
-- [GRC Projects](grc-projects)
+## Current Environment
 
----
+*Verified July 2026*
 
-## 🧠 Skills Demonstrated
-- Network Security (VLANs, trunking, segmentation)
-- Home Lab Architecture & Documentation
-- Penetration Testing (Nmap, Metasploit, Kali Linux)
-- Logging & Monitoring (Pi-hole, router logs)
-- Docker & Containerization
-- Governance, Risk & Compliance (ISO 27001, SOC 2, risk registers)
-- Threat Analysis & Reporting
-- Web Application Security Testing (CSP, HSTS, session management, clickjacking, TLS)
-- Real-World Client Engagement Support (contract penetration testing, structured reporting)
-- OWASP Testing Guide v4.2 Methodology
+### Network
 
+- **Gateway:** TP-Link ER605
+- **Primary Wi-Fi:** TP-Link BE550
+- **Office connection:** TP-Link RE705X wireless backhaul with Ethernet handoff to an EdgeSwitch
+- **Current network state:** Flat LAN; VLAN segmentation is not currently active
+- **Telus equipment:** Used separately for the Telus Smart Security system
 
-## 💼 Professional Experience
+The current office connection uses wireless backhaul rather than the former physical Ethernet trunk. This restored practical connectivity but does not carry the tagged VLAN design used in the earlier segmented network.
 
-### 🕵️ Contract Penetration Test — Web Application Portfolio Assessment (Dec 2025)
+### Server and Storage
 
-Completed a paid contract engagement supporting a senior penetration tester on a real-world web application security assessment.
+- **Primary host:** Dell OptiPlex 7050 running Ubuntu and Docker
+- **Current NAS:** Synology DS920+ with two 8 TB hard drives and a 1 TB SSD cache
+- **Previous NAS:** Synology DS218play, retired from the primary-storage role after the completed July 2026 migration to the DS920+
+- **Previous host:** HP All-in-One Ubuntu server, now decommissioned after services were migrated to the Dell
 
-**Scope:** 30 staging and pre-production web application endpoints across a multi-brand portfolio  
-**Role:** Junior Penetration Tester (contract — primarily unauthenticated, URL-based scope)  
-**Methodology:** OWASP Testing Guide v4.2  
-**Deliverables:** Formal findings report + weekly status updates to senior tester
+### Active Security and Administration Services
 
-**Key findings identified and documented:**
-- 🔴 **High** — Critical CSP misconfiguration (wildcard directive disabling all XSS protections)
-- 🔴 **High** — Unauthenticated internal testing tool exposed publicly (information disclosure + DoS vector)
-- 🟡 **Medium** — Insecure session management (missing Secure cookie flag — 18 of 30 hosts)
-- 🟡 **Medium** — Missing anti-framing headers enabling clickjacking — 6 endpoints
-- 🟢 **Low** — Legacy TLS CBC cipher suites across all IIS-hosted environments
-- 🟢 **Low** — HTTP TRACE method enabled across all IIS-hosted endpoints
+| Service | Purpose | Status |
+|---|---|---|
+| **Wazuh** | SIEM platform using Wazuh Manager, Indexer/OpenSearch, and Dashboard | **In Progress** |
+| **Pi-hole** | Network DNS filtering and query visibility | **Current** |
+| **Authentik** | Identity and access management for self-hosted services | **Current** |
+| **Docker / Portainer** | Container deployment and administration | **Current** |
+| **Home Assistant / Matter Server** | Home automation, integrations, and device management | **Current** |
 
-**Tools used:** Nmap · Burp Suite · curl · custom bash scripts · OWASP ZAP
+The Dell also hosts personal productivity, AI, media, and request-management services. The public portfolio emphasizes the security, infrastructure, administration, and troubleshooting work involved rather than exposing unnecessary operational detail.
 
-➡️ [Full Write-Up](https://github.com/dfitJackson/home-network-lab/blob/main/professional-experience/web-app-portfolio-assessment.md)
+## Featured Work
 
+### VLAN Segmentation Lab — Completed—Historical
 
-## 🧩 Projects So Far
+Designed, implemented, and validated separate Home, Work, and IoT network segments using the ER605 and Ubiquiti EdgeSwitch hardware. Testing included DHCP assignment, routing, isolation, DNS reachability, and troubleshooting across router and switch configurations.
 
-### 1) Pi-hole (Ad-blocking DNS)
-Running Pi-hole in Docker on my **HP All-in-One (Ubuntu)** box.  
-It’s handling DNS for my personal network and letting me see which domains my devices talk to most.  
-Testing with `dig` helped me confirm query flow through the **ER605**.  
-Pi-hole has a static IP `192.168.10.148` and is currently limited to my main VLAN.
+The segmented design was later decommissioned when the physical Ethernet backhaul was removed. The network now uses an RE705X wireless bridge to reach the office switch and operates as a flat LAN.
 
-### 2) VLAN Segmentation
-Goal: separate **personal**, **work**, and **IoT** traffic across my wired network.  
-The **Omada ER605** handles routing and VLAN assignment, while my **EdgeSwitch 8-Port 150W** enforces port-level segmentation.  
-The **TP-Link BE550** handles Wi-Fi and acts as a router within the Omada system.
+- [Networking Labs](./Networking-Labs/README.md)
+- [VLAN Segmentation Lab](./Networking-Labs/vlan-segmentation-lab.md)
+- [Networking Lab Overview](./Networking-Labs/networking-lab-overview.md)
+- [Historical Network Diagram](./images/Home%20Network.drawio.png)
 
-### 3) Home Assistant (Docker)
+### Wazuh SIEM — In Progress
 
-Home Assistant is running in Docker on my HP All-in-One Ubuntu machine.  
-It handles automation, integrations, dashboards, and home monitoring.
+Runs a Docker-based Wazuh single-node environment consisting of the Manager, Indexer/OpenSearch, and Dashboard. The platform is operational; agent onboarding, log-source expansion, detection validation, and portfolio documentation remain in progress.
 
-### Current Integrations
-- Ecobee (climate)
-- Chromecast (media control)
-- Pi-hole (DNS metrics)
-- Synology DSM (NAS monitoring)
-- Omada device sensors (router + switch status)
-- Matter Server (IoT onboarding)
+- [Wazuh IAM Administration Runbook](./WAZUH-SIEM/Runbooks/iam-admin-user.md)
 
-### Why Docker for HA?
-- Easy to update versions  
-- Container separation for HA, Pi-hole, and Matter  
-- No Home Assistant OS required  
-- Better control of storage paths and configs  
+### Pi-hole DNS Filtering — Current
 
+Pi-hole runs in Docker on the Dell server and provides DNS filtering and network-query visibility. The deployment has included static addressing, DHCP/DNS troubleshooting, allowlisting for self-hosted services, and validation of DNS query flow.
 
-### 4) Home Assistant Dashboard (Tablet View)
+### Authentik Identity and Access Management — Current
 
-A custom Lovelace dashboard is built specifically for a **Samsung Galaxy Tab A (SM-T580)** mounted as a control console.
+Authentik provides an identity layer for the self-hosted environment. The current deployment includes the Authentik server, worker, and PostgreSQL database running as Docker services.
 
-### Sections on the Dashboard
-- Lights  
-- Climate  
-- Media  
-- Pi-hole monitoring  
-- Synology NAS stats  
-- Omada quick-launch  
-- Network health tiles  
+### Penetration Testing Labs
 
-Most cards were built using the UI editor (minimal YAML).  
-The dashboard is designed for landscape mode and touch-friendly tiles.
+Controlled lab exercises use Kali Linux and intentionally vulnerable targets to practise reconnaissance, enumeration, exploitation, validation, evidence collection, and remediation analysis.
 
+- [Penetration Testing Portfolio](./penetration-testing-labs/README.md)
+- [First Exploit: vsftpd 2.3.4 in Metasploitable2](./penetration-testing-labs/lab-projects/first-exploit.md)
 
-## Tablet Setup (Fully Kiosk Browser)
+All lab testing is performed in authorized, isolated environments.
 
-The tablet runs **Fully Kiosk Browser** to stay in permanent fullscreen.
+### Sanitized Professional Experience
 
-Key settings:
-- Fullscreen mode enabled  
-- Navigation bars hidden  
-- Screen stays awake  
-- Auto-launch URL:  http://192.168.10.148:8123/lovelace/0
+This repository also contains sanitized summaries of authorized contract security work. Client identities, URLs, credentials, proprietary data, and raw evidence are intentionally excluded.
 
-- 
-This gives me a clean control panel that doesn’t require interaction to unlock or navigate.
+- [Web Application Portfolio Assessment](./professional-experience/web-app-portfolio-assessment.md)
 
----
+### Governance, Risk, and Compliance
 
-## Docker Stack (Summary)
+The GRC section applies risk-management and security-control concepts to lab infrastructure. It is being reviewed and modernized to distinguish completed evidence from planned work and to align future documentation with current framework versions.
 
-These are the containers running on the HP All-in-One:
+- [GRC Projects](./grc-projects/README.md)
 
-| Container | Purpose |
-|----------|---------|
-| homeassistant | Core automation and integrations |
-| pihole | DNS filtering, network stats |
-| matter-server | Matter/Thread onboarding for IoT |
+## Skills Demonstrated
 
-All containers are managed directly via CLI:
-
-
----
-
-## Synology NAS Monitoring
-
-Synology DSM is integrated with Home Assistant and provides:
-
-- CPU usage  
-- RAM usage  
-- Volume capacity  
-- Drive health  
-- Drive temperature  
-- Upload/download throughput  
-- DSM update availability  
-
-This data appears in the tablet dashboard.
-
----
-
-## Omada Network Monitoring
-
-The Omada Controller (running on Windows PC) provides:
-
-- Switch port status  
-- Router WAN online/offline state  
-- Internet connectivity sensor  
-- Device status (APs, switches, router)
-### 🗺 Network Map
-Here’s the visual layout of my current setup.
-
-[![Home Network Map](images/Home%20Network.drawio.png)](images/Home%20Network.drawio)
-
-
----
-
-## 🔧 Verified VLAN Configuration (EdgeSwitch 8-Port 150W)
-
-| VLAN ID | VLAN Name  | Port 1 | Port 2 | Port 3 | Port 4 | Port 5 | Port 6 | Port 7 | Port 8 | Notes |
-|----------|-------------|--------|--------|--------|--------|--------|--------|--------|--------|-------|
-| **1** | default | U | E | U | U | T | E | E | E | Home VLAN (untagged on 1,3,4; trunk on 5) |
-| **20** | Work VLAN | T | U | E | E | T | E | E | E | Work VLAN (untagged on 2; trunk on 5) |
-| **30** | IoT VLAN | T | E | E | E | T | E | E | E | IoT VLAN (tagged on 1,5) |
-
-**Legend:**  
-- **U = Untagged**  
-- **T = Tagged**  
-- **E = Excluded**
-
-**Summary**
-- Port 1: Uplink to router (untagged VLAN 1, tagged VLAN 20 & 30)  
-- Port 2: Work laptop (untagged VLAN 20)  
-- Port 3–4: Personal/home (untagged VLAN 1)  
-- Port 5: Trunk between switches (tagged VLAN 20 & 30, untagged VLAN 1)  
-- Ports 6–8: Not used yet
-
----
-
-## 🧰 Current Stack
-- **Routers:** Omada ER605 and TP-Link BE550 (Wi-Fi 7)  
-- **Switches:** EdgeSwitch 8-Port 150W and EdgeSwitch 8XP  
-- **Controller:** Omada Software Controller  
-- **DNS:** Pi-hole (Docker on Ubuntu) – `192.168.10.148`  
-- **Workstation:** Windows Surface (admin access)  
-- **Work Laptop:** Connected via Lenovo USB-C Dock (40AY0090US) on VLAN 20  
-
----
-
-## 🧭 Next Steps
-- Add Omada APs that support VLAN tagging.  
-- Extend Pi-hole DNS coverage across all VLANs.
-- ~~Complete and publish Dec 2025 contract pen test write-up~~
-- Begin documenting automation and monitoring using Node-RED.  
-
----
-
-## 🗒 Notes
-This repo is more like a lab journal than a polished guide.  
-Configs are live and evolve as I learn — everything here reflects what’s actually running in my setup.
-
-## 🧭 Navigation
-
-➡️ [Professional Experience](#professional-experience)   
-➡️ [Networking Labs](./Networking-Labs/README.md)  
-➡️ [GRC Projects](./grc-projects/README.md)  
-➡️ [Pentesting Labs](./penetration-testing-labs/first-exploit.md)  
-🔝 [Top](#)
-
+- Network architecture, troubleshooting, and segmentation
+- Linux and Docker administration
+- DNS filtering and validation
+- SIEM deployment with Wazuh and OpenSearch
+- Identity and access management with Authentik
+- Web application security testing with Burp Suite, Nmap, curl, and OWASP-aligned methods
+- Controlled exploitation with Kali Linux, Metasploit, and Metasploitable2
+- Evidence collection, technical reporting, and remediation guidance
+- Risk analysis and security-control mapping
+
+## Repository Guide
+
+| Area | Description | Status |
+|---|---|---|
+| [Networking Labs](./Networking-Labs/README.md) | Network design, VLAN implementation, validation, and troubleshooting | **Completed—Historical / Updating** |
+| [Penetration Testing](./penetration-testing-labs/README.md) | Controlled labs and sanitized professional summaries | **Active** |
+| [Wazuh SIEM](./WAZUH-SIEM/Runbooks/iam-admin-user.md) | SIEM deployment and operational runbooks | **In Progress** |
+| [GRC Projects](./grc-projects/README.md) | Risk, controls, policies, and framework exercises | **Updating** |
+| [Professional Experience](./professional-experience/web-app-portfolio-assessment.md) | Sanitized authorized-security engagement summaries | **Active** |
+| [Images](./images/README.md) | Diagrams and supporting visual assets | **Updating** |
+
+## Documentation Principles
+
+- Clearly distinguish current systems from historical projects
+- Document only work that was actually performed
+- Separate lab exercises from professional engagements
+- Sanitize client and operational information
+- Include validation, problems encountered, corrective actions, and lessons learned
+- Treat this repository as an evolving technical record rather than a claim that every documented system remains active
+
+## Current Documentation Priorities
+
+1. Add a current network diagram reflecting wireless office backhaul
+2. Document the completed Synology DS920+ migration and current storage configuration
+3. Expand the Wazuh section with architecture, agent onboarding, and validation
+4. Document the current Authentik implementation
+5. Repair and strengthen penetration-testing lab formatting and remediation sections
+6. Modernize the GRC material and framework references

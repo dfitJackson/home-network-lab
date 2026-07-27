@@ -1,197 +1,127 @@
 <a id="top"></a>
 
-🏠 [Home](../README.md) • ⬅️ [Networking Labs](./README.md) • ➡️ [VLAN Segmentation Lab](./vlan-segmentation-lab.md)
+[Home](../README.md) · [Networking Labs](./README.md) · [VLAN Segmentation Lab](./vlan-segmentation-lab.md)
 
+# Networking and VLAN Segmentation Overview
 
+> **Project status: Completed—Historical**
+>
+> The VLAN architecture documented here was implemented and validated previously. It is not the network’s active configuration as of July 2026.
 
-# 📡 Networking & VLAN Segmentation Lab
+## Purpose
 
-This lab documents how I segmented my home network into **Home**, **Work**, and **IoT** networks using VLANs, a TP-Link ER605 router, an EdgeSwitch 150W core switch, an EdgeSwitch 8XP for IoT, and a BE550 access point.
+This project explored how to separate home, work, and IoT traffic using VLANs, managed switching, routing rules, and structured validation. It was built in a live home-lab environment using a TP-Link ER605 and Ubiquiti EdgeSwitch hardware.
 
----
+The implementation is retained as a case study because the design, troubleshooting, and validation work remains relevant even though the physical network later changed.
 
-## 🎯 Objectives
+## Historical Lab Objectives
 
-- Create VLANs for:
-  - **VLAN 1 – Home**
-  - **VLAN 20 – Work**
-  - **VLAN 30 – IoT**
-- Map switch ports on the **EdgeSwitch 150W** to the correct VLANs.
-- Use the **ER605** for inter-VLAN routing and firewall rules.
-- Use the **BE550** in AP mode for Home Wi-Fi only.
-- Hang IoT devices off the **EdgeSwitch 8XP** on VLAN 30.
-- Validate segmentation using Windows and Ubuntu clients.
+- Create distinct Home, Work, and IoT network segments
+- Configure VLAN interfaces on the ER605
+- Configure managed-switch access and trunk behaviour
+- Assign devices to the intended network
+- Test DHCP, DNS, internet access, and cross-network reachability
+- Record configuration problems and corrective actions
+- Maintain an isolated, practical home environment while learning enterprise networking concepts
 
----
+## Hardware Used During the Project
 
-## 🛠 Hardware Used
+- TP-Link ER605 gateway
+- Ubiquiti EdgeSwitch 8-Port 150W
+- Ubiquiti EdgeSwitch 8XP
+- TP-Link BE550 Wi-Fi platform
+- Pi-hole DNS filtering
+- Windows and Ubuntu test systems
 
-- TP-Link **ER605** – router / gateway
-- Ubiquiti **EdgeSwitch 8-Port 150W** – core switch
-- Ubiquiti **EdgeSwitch 8XP** – IoT / PoE switch
-- TP-Link **BE550** (Wi-Fi 7) – access point in AP mode
-- **Pi-hole** – DNS filtering during testing
-- Windows 10, Windows 11, and Ubuntu devices
+## Historical Architecture
 
----
+During the segmented implementation, a physical Ethernet path connected the ER605 and managed switching infrastructure. This wired connection supported the tagged traffic required by the VLAN design.
 
-## 🌐 Network Topology (YAML)
-```yaml
-network_topology:
-  diagram: |
-    ISP Modem
-        ↓
-    ER605 Router (Omada)
-        ├── TP-Link BE550 (AP Mode – Home Wi-Fi, VLAN 1)
-        └── EdgeSwitch 150W (Core Switch)
-              ├── Personal PC (VLAN 1 – Home LAN)
-              ├── Work Laptop Dock (VLAN 20 – Work)
-              └── EdgeSwitch 8XP (IoT Switch – VLAN 30)
-                    ├── Smart Plugs (VLAN 30)
-                    ├── Cameras (VLAN 30)
-                    └── Other IoT Devices (VLAN 30)
+The logical networks were:
 
+| VLAN | Purpose | Historical role |
+|---|---|---|
+| **1** | Home | Personal systems and primary home connectivity |
+| **20** | Work | Dedicated work-device segment |
+| **30** | IoT | Smart-home and IoT isolation |
+
+The detailed port configuration changed during troubleshooting. This portfolio focuses on the verified design, testing process, and lessons learned rather than presenting an old port table as a reusable production configuration.
+
+## Validation Performed
+
+The project included checks for:
+
+- Correct DHCP assignment on each configured segment
+- Internet access from permitted networks
+- Isolation between Work, Home, and IoT segments
+- DNS reachability through Pi-hole where configured
+- Switch-port membership and uplink behaviour
+- Recovery after incorrect VLAN or DHCP changes
+
+Validation was performed with Windows and Ubuntu clients using IP configuration checks, ping/reachability testing, DNS queries, and direct review of router and switch settings.
+
+## Problems Investigated
+
+### DNS changes interrupted connectivity
+
+Changing DHCP-provided DNS settings caused loss of name resolution when Pi-hole was not reachable from the affected network.
+
+**Response:** Reviewed DHCP options, verified Pi-hole reachability, and retested DNS query flow before expanding coverage.
+
+### VLAN membership caused incorrect access
+
+Differences between tagged, untagged, and excluded terminology led to incorrect switch-port membership during configuration.
+
+**Response:** Rebuilt the relevant assignments, verified endpoint addressing, and repeated isolation tests.
+
+### IoT clients failed to receive addresses
+
+IoT devices did not receive expected DHCP leases while the VLAN interface and switch path were incomplete.
+
+**Response:** Reviewed the VLAN interface, switch configuration, and client leases, then retested after correcting the path.
+
+### Controller and device state became inconsistent
+
+Configuration changes were not always reflected consistently across the controller and adopted network equipment.
+
+**Response:** Reconciled the controller/device state and reapplied the intended configuration before validating connectivity.
+
+## Why the Network Changed
+
+The physical Ethernet run to the upstairs office was later removed. Office connectivity was redesigned as:
+
+```text
+ER605 gateway
+  └── BE550 primary Wi-Fi
+        └── Wireless backhaul to RE705X
+              └── Ethernet handoff to EdgeSwitch
 ```
 
----
+This design maintains office connectivity, but it does not currently provide the tagged physical trunk used by the historical VLAN implementation. The active network therefore operates as a flat LAN.
 
-## 🔧 VLAN Configuration (EdgeSwitch 150W)
+The VLAN project was not removed because it failed. It was retired because the physical connectivity and household requirements changed.
 
-### VLAN IDs
+## Lessons Learned
 
-- **VLAN 1** → Home  
-- **VLAN 20** → Work  
-- **VLAN 30** → IoT  
+- Logical security controls depend on the physical network path supporting them
+- VLAN documentation must distinguish access ports, trunks, and native/untagged traffic
+- DNS availability must be tested from every network that receives a DNS server through DHCP
+- A configuration is not complete until addressing, reachability, isolation, and recovery have been validated
+- Historical documentation should record when a design is no longer active
+- Operational requirements sometimes require a simpler design, even after a more segmented design has been proven
 
-### Port Assignments
+## Current State
 
-| Port | Purpose                                | VLAN Mode       |
-|------|----------------------------------------|-----------------|
-| 1    | ER605 Router → Switch                  | Untagged VLAN 1 |
-| 2    | Work Laptop (Dock)                     | Untagged VLAN 20|
-| 3–4  | Free / Future Expansion                | Excluded        |
-| 5    | Uplink to EdgeSwitch 8XP (IoT switch)  | Untagged VLAN 1 |
-| 6    | Personal PC                            | Untagged VLAN 1 |
-| 7–8  | BE550 AP or future devices             | Depends on use  |
+As of July 2026:
 
-> No tagged ports required at this stage because wireless gear wasn’t yet carrying multiple VLANs via 802.1Q tags.
-
----
-
-## 🌐 Router (ER605) – VLAN Interfaces & Firewall
-
-**Subnets**
-
-- **VLAN 1 – Home:** `192.168.1.0/24`
-- **VLAN 20 – Work:** `192.168.20.0/24`
-- **VLAN 30 – IoT:** `192.168.30.0/24`
-
-**Firewall behaviour (high-level)**
-
-- Work → Home: **Blocked**
-- IoT → Home: **Blocked**
-- IoT → Work: **Blocked**
-- Home → Work: **Optionally allowed** (for management)
-- All VLANs → Internet: **Allowed**
+- ER605 remains the gateway
+- BE550 provides primary Wi-Fi
+- RE705X provides wireless backhaul to the office
+- The office EdgeSwitch receives an Ethernet handoff from the RE705X
+- VLAN tagging and segmentation are not currently active
+- The network operates as a flat LAN
+- Telus network equipment is used separately for the Telus Smart Security system
 
 ---
 
-## 🧪 Validation & Testing
-
-**IP Assignment**
-
-- Work device received an address in `192.168.20.x`.
-- Home device received an address in `192.168.1.x`.
-- IoT devices received addresses in `192.168.30.x`.
-
-**Segmentation Tests**
-
-- Work VLAN **could not** reach Home devices.
-- IoT VLAN was isolated from both Home and Work.
-- Home VLAN could reach Work when the firewall rule was enabled.
-- When clients used Pi-hole as DNS, ad / tracking domains were blocked as expected.
-
-**Wi-Fi Verification**
-
-- BE550 configured in **AP mode** only.
-- BE550 SSID mapped to **VLAN 1 (Home)**.
-
----
-
-## ⚠️ Issues Encountered & Fixes
-
-### 1. Lost Internet When Changing DHCP DNS
-**Issue:** Setting Pi-hole as DNS caused devices to lose internet.  
-**Cause:** Pi-hole VLAN routing wasn’t configured yet.  
-**Fix:** Updated ER605 DHCP options + ensured Pi-hole reachable on VLAN 1.  
-**Result:** Devices regained internet and used Pi-hole for DNS filtering.
-
----
-
-### 2. BE550 Kept Reverting to Router Mode
-**Issue:** BE550 wouldn’t stay in AP Mode and restarted setup repeatedly.  
-**Cause:** Previous mesh settings + firmware auto-detection.  
-**Fix:** Full factory reset → Configure from scratch → AP Mode only.  
-**Result:** Stable Wi-Fi 7 access point running on VLAN 1.
-
----
-
-### 3. Incorrect VLAN Assignments on the EdgeSwitch 150W
-**Issue:** Ports occasionally mapped to the wrong VLAN (excluded/untagged mix-ups).  
-**Cause:** UI terminology differences between Ubiquiti and standard VLAN naming.  
-**Fix:** Rebuilt VLAN table using only Untagged/Excluded (no 802.1Q tagging).  
-**Result:** Stable segmentation between Home, Work, and IoT VLANs.
-
----
-
-### 4. IoT Network Not Receiving DHCP
-**Issue:** IoT devices received no IP addresses via the 8XP.  
-**Cause:** ER605 VLAN 30 interface missing after changes.  
-**Fix:** Reboot 8XP → Refresh DHCP leases → Recreate VLAN interface on ER605.  
-**Result:** IoT devices receiving proper DHCP on 192.168.30.x.
-
----
-
-### 5. ER605 Controller Sync Problems
-**Issue:** ER605 would not apply new configuration from the controller.  
-**Cause:** Controller mismatched state + corrupted previous adoption attempt.  
-**Fix:** Multiple factory resets, re-adopt, then apply config cleanly.  
-**Result:** Controller now pushes VLAN, DHCP, and firewall rules reliably.
-
----
-
-### 6. Home VLAN Lost Internet During Testing
-**Issue:** Internet dropped when switching WAN DNS & Pi-hole routing.  
-**Cause:** Pi-hole was unreachable until routes were rebuilt.  
-**Fix:** Updated DNS settings → Confirmed Pi-hole static IP → Tested VLAN paths.  
-**Result:** Stable Home network with working Pi-hole DNS filtering.
-
----
-
-### 7. Old VLAN Folder Was Duplicate / Broken
-**Issue:** Old GitHub VLAN folder duplicated README content and caused confusion.  
-**Fix:** Deleted the old folder → Replaced with new clean YAML-structured write-up.  
-**Result:** Clean, professional documentation with proper formatting.
-
----
-
-## 📄 Summary
-
-This lab demonstrates:
-
-- Practical VLAN segmentation in a home environment  
-- Port-based VLAN configuration on the **EdgeSwitch 150W**  
-- Using the **ER605** for VLAN interfaces and basic firewalling  
-- Isolating **IoT** devices on a separate switch and VLAN  
-- Documenting a home lab in a way that’s readable for recruiters and technical reviewers
-
-
----
-
-## 🧭 Navigation
-
-🏠 [Home](../README.md)  
-⬅️ [Networking Labs](./README.md)  
-➡️ [VLAN Segmentation Lab](./vlan-segmentation-lab.md)  
-🔝 [Top](#)
-
+[Home](../README.md) · [Networking Labs](./README.md) · [VLAN Segmentation Lab](./vlan-segmentation-lab.md) · [Top](#top)
