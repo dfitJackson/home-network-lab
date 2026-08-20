@@ -1,24 +1,23 @@
-# Real-World Penetration Testing Experience (Sanitized)
+# Real-World Penetration Testing Experience
 
-This section summarizes my **professional, contract-based penetration testing work**.
+This directory contains sanitized summaries of authorized professional penetration-testing work.
 
-Due to confidentiality and scope constraints:
-- Client names, URLs, and raw evidence are not published
-- Findings are described at a high level
-- Equivalent lab-based demonstrations are used where appropriate
+## Completed Engagements
 
-## Types of Engagements
+### Web Application Portfolio Assessment
 
-- Targeted web application assessments
-- Validation-focused security testing
-- Limited grey-box testing (authenticated on select endpoints)
+A sanitized assessment covering 30 staging and pre-production web application endpoints. The work included security-header analysis, session and cookie review, access-control testing, TLS configuration review, HTTP-method testing, manual validation, and formal reporting.
 
-## Focus Areas
+- **Status:** Completed
+- **Engagement type:** Contract support under a senior tester
+- **Write-up:** [Read the sanitized assessment](./web-app-portfolio-assessment.md)
 
-- Security headers and browser protections
-- Clickjacking validation
-- Cookie security attributes
-- TLS configuration hardening
-- Evidence-driven validation and false-positive elimination
+## Confidentiality
 
-Additional sanitized examples and lab reproductions will be added over time.
+- Client names, URLs, credentials, and proprietary data are excluded.
+- Raw evidence is not published.
+- Findings are described at a level appropriate for demonstrating methodology and reporting experience.
+
+## Navigation
+
+[Penetration Testing Portfolio](../README.md) · [Home](../../README.md) · [Top](#real-world-penetration-testing-experience)

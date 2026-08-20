@@ -93,7 +93,7 @@ All lab testing is performed in authorized, isolated environments.
 
 This repository also contains sanitized summaries of authorized contract security work. Client identities, URLs, credentials, proprietary data, and raw evidence are intentionally excluded.
 
-- [Web Application Portfolio Assessment](./professional-experience/web-app-portfolio-assessment.md)
+- [Web Application Portfolio Assessment](./penetration-testing-labs/real-world-experience/web-app-portfolio-assessment.md)
 
 ### Governance, Risk, and Compliance
 
@@ -122,7 +122,7 @@ The GRC section applies risk-management and security-control concepts to lab inf
 | [Penetration Testing](./penetration-testing-labs/README.md) | Controlled labs and sanitized professional summaries | **Active** |
 | [Wazuh SIEM](./WAZUH-SIEM/Runbooks/iam-admin-user.md) | SIEM deployment and operational runbooks | **In Progress** |
 | [GRC Projects](./grc-projects/README.md) | Risk, controls, policies, and framework exercises | **Updating** |
-| [Professional Experience](./professional-experience/web-app-portfolio-assessment.md) | Sanitized authorized-security engagement summaries | **Active** |
+| [Professional Experience](./penetration-testing-labs/real-world-experience/web-app-portfolio-assessment.md) | Sanitized authorized-security engagement summaries | **Active** |
 | [Images](./images/README.md) | Diagrams and supporting visual assets | **Updating** |
 
 ## Documentation Principles
